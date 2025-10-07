@@ -22,10 +22,10 @@ public class CalculadoraPrecioFinal {
 
         double precioUnitarioFinal = tipoIVA * descuento * precioBase;
         double totalPago = precioUnitarioFinal * unidades;
-        System.out.println("Precio base: " + precioBase + " €");
-        System.out.println("IVA aplicado: " + 100*(1-tipoIVA) + "%");
+        System.out.println("Precio base: " + precioBase + " euros");
+        System.out.println("IVA aplicado: " + 100*(tipoIVA-1) + "%");
         System.out.println("Descuento aplicado: " + 100*(1 - descuento) + "%");
-        System.out.println("Precio unitario final: " + precioUnitarioFinal + " €");
-        System.out.println("Precio total:" + totalPago + "€");
+        System.out.println("Precio unitario final: " + precioUnitarioFinal + " euros");
+        System.out.println("Precio total:" + totalPago + " euros");
     }
 }
