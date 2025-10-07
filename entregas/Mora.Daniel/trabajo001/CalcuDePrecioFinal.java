@@ -31,6 +31,7 @@ class CalcuDePrecioFinal {
         System.out.println("Descuento aplicado: " + descuento + "%");
         System.out.println("Precio unitario final: " + precioUnitarioFinal + "€");
         System.out.println("Precio total : " + precioTotal + "€");
+        scanner.close();
 
     }
 }
