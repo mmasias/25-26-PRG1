@@ -34,13 +34,13 @@ class DevolverCambio {
         monedas1 = cambio %2;
         
         System.out.println("Su cambio total es de " + cambioOriginal);
-        System.out.println(billetes100 + " billete(s) de 100 €");
-        System.out.println(billetes50 + " billete(s) de 50 €");
-        System.out.println(billetes20 + " billete(s) de 20 €");
-        System.out.println(billetes10 + " billete(s) de 10 €");
-        System.out.println(billetes5 + " billete(s) de 5 €");
-        System.out.println(monedas2 + " moneda(s) de 2 €");
-        System.out.println(monedas1 + " moneda(s) de 1 €");
+        System.out.println(billetes100 + " billete(s) de 100 euros");
+        System.out.println(billetes50 + " billete(s) de 50 euros");
+        System.out.println(billetes20 + " billete(s) de 20 euros");
+        System.out.println(billetes10 + " billete(s) de 10 euros");
+        System.out.println(billetes5 + " billete(s) de 5 euros");
+        System.out.println(monedas2 + " moneda(s) de 2 euros");
+        System.out.println(monedas1 + " moneda(s) de 1 euros");
         
     }
 }
