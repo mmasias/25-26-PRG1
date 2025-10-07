@@ -12,6 +12,6 @@ class ConvertirDuracion {
         System.out.println(dias + " dia" + (dias > 1 ? "s" : ""));
         System.out.println(horas + " hora" + (horas > 1 ? "s" : ""));
         System.out.println(minutos + " minuto" + (minutos > 1 ? "s" : ""));
-        System.out.println(segundos + " segundo" + (segundos > 1 ? "s" : ""));
+        System.out.println(segundos + " segundo" + (segundos > 1 ? "s" : "" ));
     }
 }
