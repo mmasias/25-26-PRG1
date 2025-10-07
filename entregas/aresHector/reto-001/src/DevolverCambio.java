@@ -6,14 +6,14 @@ class DevolverCambio {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Cuantos euros debe pagar?");
-        double precio = scanner.nextDouble();
+        int precio = scanner.nextInt();
 
         System.out.println("Con cuantos euros paga?");
-        double cantidaEntregada = scanner.nextDouble();
+        int cantidaEntregada = scanner.nextInt();
 
         scanner.close();
 
-        double cambio = cantidaEntregada - precio;
+        int cambio = cantidaEntregada - precio;
 
         int billetesCien = (int) (cambio / 100);
         cambio = cambio % 100;
