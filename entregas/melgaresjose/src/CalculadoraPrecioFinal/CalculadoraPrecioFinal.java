@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 public class CalculadoraPrecioFinal {
     public static void main(String[] args) {
-        Scanner scr = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int precioCentimos, unidades;
         double tipoIVA;
 
         System.out.println("Precio unitario base (céntimos) ");
-        precioCentimos = scr.nextInt();
+        precioCentimos = scanner.nextInt();
         System.out.println("Cantidad de unidades: ");
-        unidades  = scr.nextInt();
+        unidades  = scanner.nextInt();
         System.out.println("Tipo de IVA (21, 10 o 4): ");
-        tipoIVA = scr.nextInt();
+        tipoIVA = scanner.nextInt();
         tipoIVA = tipoIVA * 0.01 + 1;
 
         double precioBase = precioCentimos / 100;
