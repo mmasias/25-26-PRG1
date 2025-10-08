@@ -18,8 +18,8 @@ class Problema3 {
     int descuento = unidades >= 100 ? 15 : unidades >= 50 ? 10 : unidades >= 10 ? 5 : 0;
 
     int precioConIVA = precio + (precio * IVA / 100);
-    int precioUnitarioFinal = precioConIVA - (precioConIVA * descuento / 100);
-    int precioTotal = precioUnitarioFinal * unidades;
+    double precioUnitarioFinal = precioConIVA - (precioConIVA * descuento / 100);
+    double precioTotal = precioUnitarioFinal * unidades;
 
     System.out.println("Precio base: " + precio + " euros");
     System.out.println("IVA aplicado: " + IVA + " %");
