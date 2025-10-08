@@ -8,17 +8,15 @@ class ConvertirDuracion {
         final int SEGUNDOS_EN_DIA = 86400;
         final int SEGUNDOS_EN_MINUTO = 60;
         final int MINUTOS_EN_HORA = 60;
-        final int HORAS_EN_DIA = 60;
-
+        final int HORAS_EN_DIA = 24;
 
         System.out.print("Cuantos segundos desea convertir?: ");
         int segundosTotales = scanner.nextInt(); 
 
-
-        int segundos = segundosTotales % 60; 
-        int minutos = (segundosTotales /60) % 60;
-        int horas = (segundosTotales/3600) % 24;
-        int dias = (segundosTotales / 86400);
+        int segundos = segundosTotales % SEGUNDOS_EN_MINUTO; 
+        int minutos = (segundosTotales / SEGUNDOS_EN_MINUTO) % MINUTOS_EN_HORA;
+        int horas = (segundosTotales/ SEGUNDOS_EN_HORA) % HORAS_EN_DIA;
+        int dias = (segundosTotales / SEGUNDOS_EN_DIA);
         
         System.out.println(dias + " dia" + (dias > 1 ? "s" : ""));
         System.out.println(horas + " hora" + (horas > 1 ? "s" : ""));
