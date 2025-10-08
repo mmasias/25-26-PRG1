@@ -21,11 +21,11 @@ class Problema3 {
     int precioUnitarioFinal = precioConIVA - (precioConIVA * descuento / 100);
     int precioTotal = precioUnitarioFinal * unidades;
 
-    System.out.println("Precio base: " + precio + " €");
+    System.out.println("Precio base: " + precio + " euros");
     System.out.println("IVA aplicado: " + IVA + " %");
     System.out.println("Descuento aplicado: " + descuento + " %");
-    System.out.println("Precio unitario final: " + precioUnitarioFinal + " €");
-    System.out.println("Precio total: " + precioTotal + " €");
+    System.out.println("Precio unitario final: " + precioUnitarioFinal + " euros");
+    System.out.println("Precio total: " + precioTotal + " euros");
 
     }
  }
