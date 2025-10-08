@@ -7,6 +7,8 @@ class Problema3 {
     Scanner scanner = new Scanner(System.in);
     int precio = scanner.nextInt();
 
+    double precioEnEuros = precio / 100.0;
+
     System.out.println("¿Cuantos unidades esta comprado?");
     int unidades = scanner.nextInt();
 
@@ -17,7 +19,7 @@ class Problema3 {
 
     int descuento = unidades >= 100 ? 15 : unidades >= 50 ? 10 : unidades >= 10 ? 5 : 0;
 
-    int precioConIVA = precio + (precio * IVA / 100);
+    double precioConIVA = precioEnEuros + (precioEnEuros * IVA / 100);
     double precioUnitarioFinal = precioConIVA - (precioConIVA * descuento / 100);
     double precioTotal = precioUnitarioFinal * unidades;
 
