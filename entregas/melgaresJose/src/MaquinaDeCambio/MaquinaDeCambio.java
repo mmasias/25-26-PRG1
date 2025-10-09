@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class DevolverCambio {
+class MaquinaDeCambio {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int eurosAPagar;
