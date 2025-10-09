@@ -9,6 +9,7 @@ class ConverDeDuracion {
         final int SEGUNDOS_POR_MINUTO = 60 * SEGUNDOS;
         final int SEGUNDOS_POR_HORA = 60 * SEGUNDOS_POR_MINUTO;
         final int SEGUNDOS_POR_DIA = 24 * SEGUNDOS_POR_HORA;
+        final int MINUTOS_POR_HORA = 1 * SEGUNDOS_POR_HORA;
         Scanner scanner = new Scanner(System.in);
         System.out.println("¿Cuántos segundos desea convertir?");
         int segundos = scanner.nextInt();
