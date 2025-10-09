@@ -1,15 +1,15 @@
 
 import java.util.Scanner;
 
-public class DevolverCambio {
+public class CalculadoraCambio {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("¿Cuántos euros debe pagar?");
-        int debe = sc.nextInt();
+        int debe = scanner.nextInt();
 
         System.out.println("¿Con cuántos euros paga?");
-        int paga = sc.nextInt();
+        int paga = scanner.nextInt();
 
         int vuelta = paga - debe;
         int resto = vuelta % 100;
