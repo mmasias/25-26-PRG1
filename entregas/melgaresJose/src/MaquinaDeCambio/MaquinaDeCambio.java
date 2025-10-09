@@ -17,7 +17,7 @@ class MaquinaDeCambio {
         
         int billetes100 = cambio / 100;
         cambio = cambio % 100;
-        int billetes50 = cambio % 100 / 50;
+        int billetes50 = cambio / 50;
         cambio = cambio % 50;
         int billetes20 = cambio / 20;
         cambio = cambio % 20;
