@@ -1,4 +1,4 @@
-public class Reto-00 {
+public class Reto-001 {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
 
@@ -34,4 +34,5 @@ public class Reto-00 {
             sb.append(cantidad > 0 ? cantidad + " " + nombres[i] + "\n" : "");
         }
         return sb.toString();
+
     }}
