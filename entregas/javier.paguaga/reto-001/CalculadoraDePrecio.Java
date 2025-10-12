@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Problema3 {
+class CalculadoraDePrecio {
     public static void main(String[] args) {
 
     System.out.println("Escriba el precio unitario base del producto (centimos)");

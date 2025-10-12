@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Problema1 {
+class CalculadoraDeCambio {
     public static void main(String[] args) {
 
     System.out.println("Cuantos euros debe pagar");

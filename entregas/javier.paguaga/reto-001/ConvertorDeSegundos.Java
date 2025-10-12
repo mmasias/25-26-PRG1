@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
-class Problema2 {
+class ConvertorDeSegundos {
     public static void main(String[] args) {
+
+        final int SEGUNDOS_POR_MINUTO = 60;
+        final int MINUTOS_POR_HORA = 60;
+        final int HORAS_POR_DIA = 24;
 
     System.out.println("¿Cuantos segundos desea convertir?");
     Scanner scanner = new Scanner(System.in);
@@ -9,14 +13,14 @@ class Problema2 {
 
     scanner.close();
 
-    int minutos = segundos / 60;
-    segundos = segundos % 60;
+    int minutos = segundos / SEGUNDOS_POR_MINUTO;
+    segundos = segundos % SEGUNDOS_POR_MINUTO;
 
-    int horas = minutos / 60;
-    minutos = minutos % 60;
+    int horas = minutos / MINUTOS_POR_HORA;
+    minutos = minutos % MINUTOS_POR_HORA;
 
-    int dias = horas / 24;
-    horas = horas % 24;
+    int dias = horas / HORAS_POR_DIA;
+    horas = horas % HORAS_POR_DIA;
 
     System.out.println("Dias: " + dias);
     System.out.println("Horas: " + horas);
