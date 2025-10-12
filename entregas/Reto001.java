@@ -1,4 +1,4 @@
-public class Reto-001 {
+public class Reto001 {
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
 
@@ -36,3 +36,4 @@ public class Reto-001 {
         return sb.toString();
 
     }}
+
