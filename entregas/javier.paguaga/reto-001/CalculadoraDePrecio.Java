@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+class CalculadoraDePrecio {
+    public static void main(String[] args) {
+
+    System.out.println("Escriba el precio unitario base del producto (centimos)");
+    Scanner scanner = new Scanner(System.in);
+    int precio = scanner.nextInt();
+
+    double precioEnEuros = precio / 100.0;
+
+    System.out.println("¿Cuantos unidades esta comprado?");
+    int unidades = scanner.nextInt();
+
+    System.out.println("¿Que tipo de IVA? (21, 10, 4)");
+    int IVA = scanner.nextInt();
+
+    scanner.close();
+
+    int descuento = unidades >= 100 ? 15 : unidades >= 50 ? 10 : unidades >= 10 ? 5 : 0;
+
+    double precioConIVA = precioEnEuros + (precioEnEuros * IVA / 100);
+    double precioUnitarioFinal = precioConIVA - (precioConIVA * descuento / 100);
+    double precioTotal = precioUnitarioFinal * unidades;
+
+    System.out.println("Precio base: " + precio + " euros");
+    System.out.println("IVA aplicado: " + IVA + " %");
+    System.out.println("Descuento aplicado: " + descuento + " %");
+    System.out.println("Precio unitario final: " + precioUnitarioFinal + " euros");
+    System.out.println("Precio total: " + precioTotal + " euros");
+
+    }
+ }
