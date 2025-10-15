@@ -7,34 +7,29 @@ class ClasificaciónDeEdades {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la edad");
         int edad = scanner.nextInt();
+        String categoria = "";
         if (edad < 0 || edad > 100) {
-            System.out.println("Edad Invalida");
-            return;
+            categoria = "Edad Invalida";
         }
-        if (edad <= 5) {
-            System.out.println("Primera infancia");
-            return;
+        if (edad >= 0 && edad <= 5) {
+            categoria = "Primera infancia";
         }
-        if (edad <= 11) {
-            System.out.println("Infancia");
-            return;
+        if (edad >= 6 && edad <= 11) {
+            categoria = "Infacia";
         }
-        if (edad <= 18) {
-            System.out.println("Adolescencia");
-            return;
+        if (edad >= 12 && edad <= 18) {
+            categoria = "Adolescencia";
         }
-        if (edad <= 25) {
-            System.out.println("Juventus");
-            return;
+        if (edad >= 19 && edad <= 25) {
+            categoria = "Juventud";
         }
-        if (edad <= 59) {
-            System.out.println("Adultez");
-            return;
+        if (edad >= 26 && edad <= 59) {
+            categoria = "Adultez";
         }
-        if (edad <= 100) {
-            System.out.println("Persona Mayor");
-            return;
+        if (edad >= 60 && edad <= 100) {
+            categoria = "Persona Mayor";
         }
+        System.out.println(categoria);
         scanner.close();
     }
 

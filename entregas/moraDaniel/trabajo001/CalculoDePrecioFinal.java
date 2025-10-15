@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-class CalcuDePrecioFinal {
+class CalculoDePrecioFinal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        final int DESCUENTO_DEL_15 = 15; 
+        final int DESCUENTO_DEL_15 = 15;
         final int CANTIDAD_DESCUENTO_15 = 100;
         final int DESCUENTO_DEL_10 = 10;
         final int CANTIDAD_DESCUENTO_10 = 50;
