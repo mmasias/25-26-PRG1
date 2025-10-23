@@ -31,9 +31,9 @@ public class WhacAMole {
             System.out.println("Numero a elegir: ");
             int golpe = scanner.nextInt();
 
-            int dimension = 4;
-            int numeroDeAgujeros = 16;
-            int monigote = (int) (Math.random() * numeroDeAgujeros) + 1;
+            final int DIMENSION = 4;
+            final int NUMERO_DE_AGUJEROS = 16;
+            int monigote = (int) (Math.random() * NUMERO_DE_AGUJEROS) + 1;
             boolean acierto = monigote == golpe;
             int contador = 0;
 
@@ -43,8 +43,8 @@ public class WhacAMole {
                 System.out.println("¡Acertaste!");
             }
 
-            for (int j = 1; j <= dimension; j++) {
-                for (int i = 1; i <= dimension; i++) {
+            for (int j = 1; j <= DIMENSION; j++) {
+                for (int i = 1; i <= DIMENSION; i++) {
                     contador++;
                     if (acierto && contador == monigote) {
                         aciertoJugador++;
