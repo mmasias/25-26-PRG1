@@ -28,6 +28,6 @@ Repo de materiales y proyectos de la asignatura **Programación 1** del [Grado d
 
 NOTA: *Algunos enlaces podrían requerir **credenciales de acceso al campus** o a otros espacios colaborativos.*
 
-- Hoja de asistencia et-al
+- [Hoja de asistencia et-al](https://docs.google.com/spreadsheets/d/1e2lT0d0E6NBNk782fjRDihj1v6brBXyhqw6ylt0Wxmg/edit?usp=sharing)
 - Libro de la asignatura
 - Este repo, versión de ediciones pasadas
