@@ -8,3 +8,5 @@
     - Repo del curso 25-26
     - Repo de la asignatura
   - Naturaleza de las evaluaciones
+
+- Concepto de algoritmo
