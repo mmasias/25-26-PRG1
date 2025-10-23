@@ -26,16 +26,42 @@ class Batalla {
 
         final int DAÑO_ATAQUE3 = 20;
         final double EXITO_ATAQUE3 = 0.4;
+        final int EXITO_DEFENSA = 0.8;
+        final int REDUCCION_DEFENSA = 5;
+
+       
+        final int LIMITE_DESMAYO_GUERRERO = 30;
+        final int LIMITE_DESMAYO_VAMPIRO = 20;
+
 
         boolean guerreroVivo = true;
         boolean vampiroVivo = true;
         double probabilidadGolpe = 0;
+
+        boolean usarPocion=false;
 
         System.out.println("¡Comienza la batalla entre el Guerrero y el Vampiro!");
         System.out.println("Vida Guerrero [" + vidaGuerrero + "] / Vida Vampiro [" + vidaVampiro + "]");
     
         double probabilidadGolpe=0;
         while (!algunMuerto){
+            if (vidaGuerrero<=LIMITE_DESMAYO_GUERRERO) {
+                System.out.println ("Guerrero desmayado por tanto recupera 2 puntos ");
+
+            }else (usarPocion) {
+                System.out.println ("El guerrero está con su poción");
+                usarPocion= false;
+                vidaGuerrero=150;
+                System.out.println( "El guerrero recupera todo la energía, bien!");
+            if (vidaVampiro<=LIMITE_DESMAYO_VAMPIRO){
+                System.out.println ("El vampiro se desmaya y recupera energía");
+                vidaVampiro =2;
+            } else {
+                int ataqueElegido = (Math.random*3+1);
+                int dañoVampiro=0;
+                double exitoAtaque =0;
+            }
+            }
             if (Math.random()<PORCENTAJE_EXITO_GUERRERO){
                 vidaVampiro=vidaVampiro - DAÑO_ESPADA;
                 System.out.println ("El vampiro recibe una torta");
@@ -92,6 +118,8 @@ class Batalla {
                 } else {
                     System.out.println("El guerrero esquiva el ATAQUE 3 del vampiro.");
                 }
+                System.out.println ("El vampiro intenta un ataque" + ataqueElegido + ".");
+        
            
             
                     
