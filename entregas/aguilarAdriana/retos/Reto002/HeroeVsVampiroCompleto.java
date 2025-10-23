@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class HeroeVsVampiroCompleto {
+public class HeroeVsVampiroCompleto {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +25,7 @@ class HeroeVsVampiroCompleto {
         int vidaVampiro = 60;
 
         final int ARMA_UNO_HEROE = 7;
-        final double PROB_ARMA_UNO_HEROE = 0;
+        final double PROB_ARMA_UNO_HEROE = 0.5;
         final int ARMA_DOS_HEROE = 15;
         final double PROB_ARMA_DOS_HEROE = 0.25;
         final int ARMA_TRES_HEROE = 30;
@@ -43,7 +43,7 @@ class HeroeVsVampiroCompleto {
             System.out.println("Elige tu arma (1, 2 o 3):");
             int ataqueElegidoCaballero = scanner.nextInt();
             
-            
+            // Turno del caballero
             if (ataqueElegidoCaballero == 1) {
                 if (Math.random() <= PROB_ARMA_UNO_HEROE) {
                     vidaVampiro = vidaVampiro - ARMA_UNO_HEROE;
@@ -69,7 +69,7 @@ class HeroeVsVampiroCompleto {
                 }
             }
             
-            
+            // Turno del vampiro (si sigue vivo)
             if (vidaVampiro > 0) {
                 int ataqueAleatorio = (int)(Math.random()*3) + 1;
                 if (ataqueAleatorio == 1) {
@@ -100,7 +100,7 @@ class HeroeVsVampiroCompleto {
             System.out.println("");
         }
 
-        
+        // Final de la batalla
         if (vidaHeroe > 0) {
             System.out.println("¡GANASTE! ¡El vampiro ha sido derrotado!");
         } else {
