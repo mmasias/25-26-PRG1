@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class ConversorDuracion {
+    public static void main (String [] args) {
+        Scanner scanner= new Scanner (System.in);
+        System.out.println ("¿Cuántos segundos desea convertir?");
+        int totalSegundos= scanner.nextLong();
+        int dias=totalSegundos /86400;
+        int horas =(totalSegundos %86400) /3600;
+        int minutos =(totalSegundos%3600)/60;
+        int segundos= (totalSegundos&60);
+        System.out.println(dias+(dias==1 ? "dia": "dias"));
+        System.out.println (horas+(horas==1 ? "hora": "horas"));
+        System.out.println (minutos+(minutos==1 ? "minuto":"minutos"));
+        System.out.println (segundos +(segundos==1 ? "segundo": "segundos"));
+
+    }
+}
