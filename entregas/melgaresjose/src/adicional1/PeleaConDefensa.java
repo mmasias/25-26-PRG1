@@ -93,5 +93,6 @@ class PeleaExtendida {
 
             boolean ganoGuerrero = guerreroHP > 0;
             System.out.println(ganoGuerrero ? "El Guerrero es el vencedor" : "Las fuerzas del mal han vencido esta noche");
+            scanner.close();
       }
 }
