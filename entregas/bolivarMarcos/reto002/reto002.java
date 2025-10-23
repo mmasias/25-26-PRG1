@@ -7,13 +7,15 @@ public class reto002 {
 
         int numeroArmaEscogida;
         int numeroAtaqueVampiro;
-        int vidaheroe = 160;
+        int vidaHeroe = 160;
         final int DAÑO_HEROE_ARMA_1 = 7;
         final int DAÑO_HEROE_ARMA_2 = 15;
         final int DAÑO_HEROE_ARMA_3 = 30;
         final int DEFENSA_HEROE = 0;
         int dañoHeroe = 0;
         double probabilidadExitoHeroe = 0;
+        final int VIDA_MINIMA_DESMAYO_HEROE = 20;
+        boolean desmayoHeroe = false;
 
         final int CANTIDAD_ATAQUES_VAMPIRO = 3;
         final int DAÑO_VAMPIRO_ATAQUE_1 = 5;
@@ -22,8 +24,10 @@ public class reto002 {
         int vidaVampiro = 60;
         double probabilidadExitoVampiro = 0;
         int dañoVampiro = 0;
+        final int VIDA_MINIMA_DESMAYO_VAMPIRO = 20;
         boolean alguienVivo = true;
         boolean vampiroVivo = true;
+        boolean desmayoVampiro = false;
         Scanner input = new Scanner(System.in);
 
         while (alguienVivo) {
@@ -62,36 +66,58 @@ public class reto002 {
                 System.out.println("Te equivocas e intentas pegar al vampiro con un plátano!!");
                 probabilidadExitoHeroe = 0;
                 dañoHeroe = 0;
-                dañoVampiro = vidaheroe;
+                dañoVampiro = vidaHeroe;
                 probabilidadExitoVampiro = 1;
 
             }
 
-            if (Math.random() < probabilidadExitoHeroe && numeroArmaEscogida != 4) {
-                System.out.println("El vampiro se lleva un tajo!!");
-                vidaVampiro = vidaVampiro - dañoHeroe;
-            } else if (Math.random() < probabilidadExitoHeroe && numeroArmaEscogida == 4) {
-                System.out.println("Te defiendes a duras penas del vampiro!!");
-            } else if (Math.random() > probabilidadExitoHeroe && numeroArmaEscogida == 4) {
-                System.out.println("No logras defenderte del vampiro!!");
+            if (!desmayoHeroe) {
+                if (Math.random() < probabilidadExitoHeroe && numeroArmaEscogida != 4) {
+                    System.out.println("El vampiro se lleva un tajo!!");
+                    vidaVampiro = vidaVampiro - dañoHeroe;
+                } else if (Math.random() < probabilidadExitoHeroe && numeroArmaEscogida == 4) {
+                    System.out.println("Te defiendes a duras penas del vampiro!!");
+                } else if (Math.random() > probabilidadExitoHeroe && numeroArmaEscogida == 4) {
+                    System.out.println("No logras defenderte del vampiro!!");
+                } else {
+                    System.out.println("El vampiro ha esquivado el ataque!!");
+                }
+
+            }else {
+                System.out.println("El heroe está desmayado y no puede atacar!!");
+            }
+            if (vidaVampiro < VIDA_MINIMA_DESMAYO_VAMPIRO && vidaVampiro > 0) {
+                desmayoVampiro = true;
+                System.out.println(
+                        "El vampiro se ha desmayado del dolor!! // Al descansar ha recuperado 2 puntos de vida");
+                vidaVampiro = vidaVampiro + 2;
             } else {
-                System.out.println("El vampiro ha esquivado el ataque!!");
+                desmayoVampiro = false;
             }
 
             if (vidaVampiro <= 0) {
                 vampiroVivo = false;
             }
-
-            if (vampiroVivo) {
+            if (vampiroVivo && !desmayoVampiro) {
                 if (Math.random() < probabilidadExitoVampiro) {
                     System.out.println("El heroe se lleva un mordisco!!");
-                    vidaheroe = vidaheroe - dañoVampiro;
+                    vidaHeroe = vidaHeroe - dañoVampiro;
                 } else {
                     System.out.println("El heroe ha esquivado el mordisco!!");
                 }
+            }else {
+                System.out.println("El vampiro está desamyado y no puede atacar!!");
             }
-            System.out.println("La vida del heroe es [" + vidaheroe + "]/La vida del vampiro es [" + vidaVampiro + "]");
-            if (vidaheroe <= 0 || !vampiroVivo) {
+            if (vidaHeroe < VIDA_MINIMA_DESMAYO_HEROE && vidaHeroe > 0) {
+                desmayoHeroe = true;
+                System.out
+                        .println("El héroe se ha desmayado del dolor!! // Al descansar ha recuperado 2 puntos de vida");
+                vidaHeroe += 2;
+            } else {
+                desmayoHeroe = false;
+            }
+            System.out.println("La vida del heroe es [" + vidaHeroe + "]/La vida del vampiro es [" + vidaVampiro + "]");
+            if (vidaHeroe <= 0 || !vampiroVivo) {
                 if (vampiroVivo) {
                     System.out.println("El vampiro mató al heroe!!");
 
