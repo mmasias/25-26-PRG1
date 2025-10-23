@@ -2,6 +2,12 @@
 
 > *Entiéndase "deberíamos saber" como una combinación de "nos debería sonar", "no nos debería sorprender", "deberíamos conocer", "deberíamos saber manejar", en función del tema abordado. En cualquier caso, lo mínimo es "no nos debería sorprender" y deberíamos poder tener una mínima conversación o lectura sobre estos temas.*
 
+## 2 de octubre
+
+- ¡Código limpio!
+- Diferencia entre código que funciona y código bien escrito.
+- Los límites de la programación imperativa básica: código repetitivo como síntoma de necesidad de algo que aborde de modo aun más elegante.
+
 ## 30 septiembre
 
 - Entrada de datos por consola
