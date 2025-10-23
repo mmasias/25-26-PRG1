@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class PeleaConDefensa {
+class PeleaConCansancio {
       public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
             final double CHANCE_ARMA1 = 0.50;
