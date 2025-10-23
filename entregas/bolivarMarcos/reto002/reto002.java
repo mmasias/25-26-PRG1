@@ -1,35 +1,81 @@
 package entregas.bolivarMarcos.reto002;
 
+import java.util.Scanner;
+
 public class reto002 {
     public static void main(String[] args) {
 
-        final int DAÑO_HEROE = 2;
-        int vidaheroe = 20;
-        final double PROBABILIDAD_EXITO_HEROE = 0.5;
+        int numeroArmaEscogida;
+        int numeroAtaqueVampiro;
+        int vidaheroe = 160;
+        final int DAÑO_HEROE_ARMA_1 = 7;
+        final int DAÑO_HEROE_ARMA_2 = 15;
+        final int DAÑO_HEROE_ARMA_3 = 30;
+        int dañoHeroe=0;
+        double probabilidadExitoHeroe=0;
 
-        final int DAÑO_VAMPIRO = 4;
-        int vidaVampiro = 10;
-        final double PROBABILIDAD_EXITO_VAMPIRO = 0.5;
+        final int CANTIDAD_ATAQUES_VAMPIRO = 3;
+        final int DAÑO_VAMPIRO_ATAQUE_1 = 5;
+        final int DAÑO_VAMPIRO_ATAQUE_2 = 10;
+        final int DAÑO_VAMPIRO_ATAQUE_3 = 20;
+        int vidaVampiro = 60;
+        double probabilidadExitoVampiro=0;
+        int dañoVampiro=0;
         boolean alguienVivo = true;
         boolean vampiroVivo = true;
-        while (alguienVivo) {
+        Scanner input = new Scanner(System.in);
 
-            if (Math.random() < PROBABILIDAD_EXITO_HEROE) {
+        while (alguienVivo) {
+            System.out.println(
+                    "Con que arma quieres atacar al vampiro?\n1: (7 dmg/50% prob)\n2: (15 dmg/25% prob)\n3: (30 dmg/12% prob)");
+            numeroArmaEscogida = input.nextInt();
+
+            numeroAtaqueVampiro = (int) (Math.random() *CANTIDAD_ATAQUES_VAMPIRO) + 1;
+            if (numeroAtaqueVampiro == 1) {
+                probabilidadExitoVampiro = 0.9;
+                dañoVampiro = DAÑO_VAMPIRO_ATAQUE_1;
+
+            } else if (numeroAtaqueVampiro == 2) {
+                probabilidadExitoVampiro = 0.6;
+                dañoVampiro = DAÑO_VAMPIRO_ATAQUE_2;
+            } else if (numeroAtaqueVampiro == 3) {
+                probabilidadExitoVampiro = 0.4;
+                dañoVampiro = DAÑO_VAMPIRO_ATAQUE_3;
+            }
+
+            if (numeroArmaEscogida == 1) {
+                probabilidadExitoHeroe = 0.5;
+                dañoHeroe= DAÑO_HEROE_ARMA_1;
+            } else if (numeroArmaEscogida == 2) {
+                probabilidadExitoHeroe = 0.25;
+                dañoHeroe= DAÑO_HEROE_ARMA_2;
+            } else if (numeroArmaEscogida == 3) {
+                probabilidadExitoHeroe = 0.12;
+                dañoHeroe=DAÑO_HEROE_ARMA_3;
+            }else {
+                System.out.println("Te equivocas e intentas pegar al vampiro con un plátano!!");
+                probabilidadExitoHeroe=0;
+                dañoHeroe=0;
+                dañoVampiro= vidaheroe;
+                probabilidadExitoVampiro=1;
+
+            }
+
+            if (Math.random()<probabilidadExitoHeroe){
                 System.out.println("El vampiro se lleva un tajo!!");
-                vidaVampiro = vidaVampiro - DAÑO_HEROE;
-            } else {
-                System.out.println("El vampiro esquivó el ataque!!");
+                vidaVampiro = vidaVampiro- dañoHeroe;
+            }else {
+                System.out.println("El vampiro ha esquivado el ataque!!");
             }
 
             if (vidaVampiro <= 0) {
                 vampiroVivo = false;
-                alguienVivo = false;
             }
 
             if (vampiroVivo) {
-                if (Math.random() < PROBABILIDAD_EXITO_VAMPIRO) {
+                if (Math.random() < probabilidadExitoVampiro) {
                     System.out.println("El heroe se lleva un mordisco!!");
-                    vidaheroe = vidaheroe - DAÑO_VAMPIRO;
+                    vidaheroe = vidaheroe - dañoVampiro;
                 } else {
                     System.out.println("El heroe ha esquivado el mordisco!!");
                 }
@@ -44,7 +90,7 @@ public class reto002 {
                 }
                 alguienVivo = false;
             }
-
+            System.out.println("-----------------------------");
         }
 
     }
