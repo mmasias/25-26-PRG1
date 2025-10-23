@@ -8,6 +8,8 @@ class Batalla {
         final double PORCENTAJE_EXITO_ARMA_1 = 0.5;
         final double PORCENTAJE_EXITO_ARMA_2 = 0.25;
         final double PORCENTAJE_EXITO_ARMA_3 = 0.12;
+        final double PORCENTAJE_EXITO_DEFENSA = 0.8;
+        final int REDUCCION_DAÑO_POR_PROTECCION = 5;
         int vidaGuerrero = 150;
 
         final int ATAQUE_1 = 7;
@@ -59,22 +61,31 @@ class Batalla {
 
             int ataqueVampiro = (int)(Math.random() * 3) + 1;
             int dañoVampiro = 0;
-            double probExitoVampiro = 0;
+            double probabilidadExitoVampiro = 0;
 
             if (ataqueVampiro == 1) {
                 dañoVampiro = ATAQUE_1;
-                probExitoVampiro = PORCENTAJE_EXITO_ATAQUE_1;
+                probabilidadExitoVampiro = PORCENTAJE_EXITO_ATAQUE_1;
             } else if (ataqueVampiro == 2) {
                 dañoVampiro = ATAQUE_2;
-                probExitoVampiro = PORCENTAJE_EXITO_ATAQUE_2;
+                probabilidadExitoVampiro = PORCENTAJE_EXITO_ATAQUE_2;
             } else {
                 dañoVampiro = ATAQUE_3;
-                probExitoVampiro = PORCENTAJE_EXITO_ATAQUE_3;
+                probabilidadExitoVampiro = PORCENTAJE_EXITO_ATAQUE_3;
             }
 
-            if (Math.random() < probExitoVampiro) {
-                vidaGuerrero -= dañoVampiro;
-                System.out.println("El guerrero recibe una mordida (-" + dañoVampiro + " vida)");
+            System.out.println("¿Deseas intentar protegerte del ataque del vampiro? (true/false)");
+            boolean usarEscudo = scanner.nextBoolean();
+
+            if (Math.random() < probabilidadExitoVampiro) {
+                if (usarEscudo && Math.random() < PORCENTAJE_EXITO_DEFENSA) {
+                    int dañoReducido = Math.max(dañoVampiro - REDUCCION_DAÑO_POR_PROTECCION, 0);
+                    vidaGuerrero -= dañoReducido;
+                    System.out.println("El guerrero bloquea parcialmente el ataque (-" + dañoReducido + " vida)");
+                } else {
+                    vidaGuerrero -= dañoVampiro;
+                    System.out.println("El guerrero recibe una mordida (-" + dañoVampiro + " vida)");
+                }
             } else {
                 System.out.println("El guerrero esquiva la mordida");
             }
