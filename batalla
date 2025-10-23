@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class batalla {
+    public static void main(String[] args) {
+
+        int numeroArmaEscogida;
+        int numeroAtaqueVampiro;
+        int vidaGuerrero = 160;
+        final int DAÑO_GUERRERO_ARCO = 7;
+        final int DAÑO_GUERRERO_ESPADA = 15;
+        final int DAÑO_GUERRERO_HACHA = 30;
+        final int DEFENSA_GUERRERO = 0;
+        int dañoGuerrero = 0;
+        double posibilidadExitoGuerrero = 0;
+
+        final int NUMERO_ATAQUES_VAMPIRO = 3;
+        final int DAÑO_VAMPIRO_GARRA = 5;
+        final int DAÑO_VAMPIRO_MORDISCO = 10;
+        final int DAÑO_VAMPIRO_TESTARAZO = 20;
+        int vidaVampiro = 60;
+        double probabilidadExitoVampiro = 0;
+        int dañoVampiro = 0;
+        boolean alguienVivo = true;
+        boolean vampiroVivo = true;
+        Scanner input = new Scanner(System.in);
+
+        while (alguienVivo) {
+            System.out.println(
+                    "Con que arma quieres atacar al vampiro?\n1: Arco (7 dmg/50% prob)\n2: Espada (15 dmg/25% prob)\n3: Hacha (30 dmg/12% prob)\n4 (Defenderse // 0 dmg/80% prob/-5 dmg vampiro)");
+            numeroArmaEscogida = input.nextInt();
+
+            numeroAtaqueVampiro = (int) (Math.random() * NUMERO_ATAQUES_VAMPIRO) + 1;
+            if (numeroAtaqueVampiro == 1) {
+                probabilidadExitoVampiro = 0.9;
+                dañoVampiro = DAÑO_VAMPIRO_GARRA;
+
+            } else if (numeroAtaqueVampiro == 2) {
+                probabilidadExitoVampiro = 0.6;
+                dañoVampiro = DAÑO_VAMPIRO_MORDISCO;
+            } else if (numeroAtaqueVampiro == 3) {
+                probabilidadExitoVampiro = 0.4;
+                dañoVampiro = DAÑO_VAMPIRO_TESTARAZO;
+            }
+
+            if (numeroArmaEscogida == 1) {
+                posibilidadExitoGuerrero = 0.5;
+                dañoGuerrero = DAÑO_GUERRERO_ARCO;
+            } else if (numeroArmaEscogida == 2) {
+                posibilidadExitoGuerrero = 0.25;
+                dañoGuerrero = DAÑO_GUERRERO_ESPADA;
+            } else if (numeroArmaEscogida == 3) {
+                posibilidadExitoGuerrero = 0.12;
+                dañoGuerrero = DAÑO_GUERRERO_HACHA;
+            } else if (numeroArmaEscogida == 4) {
+                posibilidadExitoGuerrero = 0.8;
+                dañoGuerrero = DEFENSA_GUERRERO;
+                dañoVampiro = dañoVampiro - 5;
+                probabilidadExitoVampiro = 1;
+            } else {
+                System.out.println("Troleas y el vampiro se pica");
+                posibilidadExitoGuerrero = 0;
+                dañoGuerrero = 0;
+                dañoVampiro = vidaGuerrero;
+                probabilidadExitoVampiro = 1;
+
+            }
+
+            if (Math.random() < posibilidadExitoGuerrero && numeroArmaEscogida != 4) {
+                System.out.println("El vampiro se lleva un golpe");
+                vidaVampiro = vidaVampiro - dañoGuerrero;
+            } else if (Math.random() < posibilidadExitoGuerrero && numeroArmaEscogida == 4) {
+                System.out.println("Te defiendes exitosamente del vampiro!!");
+            } else if (Math.random() > posibilidadExitoGuerrero && numeroArmaEscogida == 4) {
+                System.out.println("No logras defenderte del vampiro!!");
+            } else {
+                System.out.println("El vampiro ha esquivado el golpe");
+            }
+
+            if (vidaVampiro <= 0) {
+                vampiroVivo = false;
+            }
+
+            if (vampiroVivo) {
+                if (Math.random() < probabilidadExitoVampiro) {
+                    System.out.println("El heroe no esquivo a tiempo");
+                    vidaGuerrero = vidaGuerrero - dañoVampiro;
+                } else {
+                    System.out.println("El heroe finto el golpe");
+                }
+            }
+            System.out.println("La vida del heroe es [" + vidaGuerrero + "]/La vida del vampiro es [" + vidaVampiro + "]");
+            if (vidaGuerrero <= 0 || !vampiroVivo) {
+                if (vampiroVivo) {
+                    System.out.println("El guerrero no completo su mision");
+
+                } else {
+                    System.out.println("El vampiro perdio su batalla");
+                }
+                alguienVivo = false;
+            }
+            System.out.println("-----------------------------");
+        }
+
+    }
+}
