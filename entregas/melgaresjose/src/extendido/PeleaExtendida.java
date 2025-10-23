@@ -50,7 +50,9 @@ class PeleaExtendida {
                 vampiroHP = vampiroHP - (dadoGuerrero ? DANO_ARMA3 : 0);
             }
             System.out.println(dadoGuerrero ? "El ataque dio al vampiro!" : "Pero el guerrero falló");
-            opcionVampiro = (int) (Math.random() * 10);
+
+            hayMuerto = guerreroHP * vampiroHP <= 0;
+            opcionVampiro = hayMuerto ?  16 :(int) (Math.random() * 10);
             if (opcionVampiro <= 0 || opcionVampiro < 3){
                 dadoVampiro = Math.random() < CHANCE_ATAQUE1;
                 guerreroHP = guerreroHP - (dadoVampiro ? DANO_ATAQUE1 : 0);
@@ -63,11 +65,14 @@ class PeleaExtendida {
                 System.out.print("El vampiro hizo mordida");
                 System.out.print(dadoVampiro ? " y ha herido al guerrero": "... pero fallo");
             }
-            else {
+            else if (opcionVampiro > 6 || opcionVampiro <= 10){
                 dadoVampiro = Math.random() < CHANCE_ATAQUE3;
-                guerreroHP = guerreroHP - (dadoVampiro ? DANO_ATAQUE2 : 0);
+                guerreroHP = guerreroHP - (dadoVampiro ? DANO_ATAQUE3 : 0);
                 System.out.print("El vampiro hizo tortura mental");
                 System.out.print(dadoVampiro ? " y ha hecho al guerrero": "... pero fallo");
+            }
+            else {
+                  System.out.println("Ya hay un ganador!");
             }
             System.out.println();
             hayMuerto = guerreroHP * vampiroHP <= 0;
