@@ -11,9 +11,9 @@ class Batalla {
         final double PORCENTAJE_EXITO_DEFENSA = 0.8;
         final int REDUCCION_DAÑO_POR_PROTECCION = 5;
         final int LIMITE_DESMAYO_GUERRERO = 30;
-        final int LIMITE_DESMAYO_VAMPIRO = 20;
         final int RECUPERACION_POR_TURNO = 2;
-        int vidaGuerrero = 150;
+        final int VIDA_MAX_GUERRERO = 150;
+        int vidaGuerrero = VIDA_MAX_GUERRERO;
 
         final int ATAQUE_1 = 7;
         final int ATAQUE_2 = 15;
@@ -21,11 +21,15 @@ class Batalla {
         final double PORCENTAJE_EXITO_ATAQUE_1 = 0.9;
         final double PORCENTAJE_EXITO_ATAQUE_2 = 0.6;
         final double PORCENTAJE_EXITO_ATAQUE_3 = 0.4;
+        final int LIMITE_DESMAYO_VAMPIRO = 20;
         int vidaVampiro = 60;
 
         boolean algunMuerto = false;
         boolean guerreroDesmayado = false;
         boolean vampiroDesmayado = false;
+        boolean bebiendoPocion = false;
+        int turnosParaCurarse = 0;
+
         Scanner scanner = new Scanner(System.in);
 
         do {
@@ -44,34 +48,58 @@ class Batalla {
                 if (vidaVampiro > LIMITE_DESMAYO_VAMPIRO) vampiroDesmayado = false;
             }
 
-            if (!guerreroDesmayado) {
-                System.out.println("Escoge el arma de tu héroe:");
-                System.out.println("1. Arma 1: 7 puntos de daño y 50% de éxito");
-                System.out.println("2. Arma 2: 15 puntos de daño y 25% de éxito");
-                System.out.println("3. Arma 3: 30 puntos de daño y 12% de éxito");
-                int eleccion = scanner.nextInt();
-
-                int dañoGuerrero = 0;
-                double probExitoGuerrero = 0;
-
-                if (eleccion == 1) {
-                    dañoGuerrero = ARMA_1;
-                    probExitoGuerrero = PORCENTAJE_EXITO_ARMA_1;
-                } else if (eleccion == 2) {
-                    dañoGuerrero = ARMA_2;
-                    probExitoGuerrero = PORCENTAJE_EXITO_ARMA_2;
-                } else if (eleccion == 3) {
-                    dañoGuerrero = ARMA_3;
-                    probExitoGuerrero = PORCENTAJE_EXITO_ARMA_3;
+            if (bebiendoPocion) {
+                turnosParaCurarse--;
+                if (turnosParaCurarse == 0) {
+                    vidaGuerrero = VIDA_MAX_GUERRERO;
+                    bebiendoPocion = false;
+                    System.out.println("El héroe ha terminado de beber la poción y recupera toda su vida (" + vidaGuerrero + ")");
                 } else {
-                    System.out.println("Elección inválida, pierdes el turno.");
+                    System.out.println("El héroe sigue bebiendo la poción (" + turnosParaCurarse + " turnos restantes)");
                 }
+            }
 
-                if (Math.random() < probExitoGuerrero) {
-                    vidaVampiro -= dañoGuerrero;
-                    System.out.println("El vampiro recibe una ostia (-" + dañoGuerrero + " vida)");
+            if (!guerreroDesmayado && !bebiendoPocion) {
+                System.out.println("Escoge una acción:");
+                System.out.println("1. Atacar");
+                System.out.println("2. Beber poción curativa (tarda 3 turnos)");
+                int accion = scanner.nextInt();
+
+                if (accion == 1) {
+                    System.out.println("Escoge el arma de tu héroe:");
+                    System.out.println("1. Arma 1: 7 puntos de daño y 50% de éxito");
+                    System.out.println("2. Arma 2: 15 puntos de daño y 25% de éxito");
+                    System.out.println("3. Arma 3: 30 puntos de daño y 12% de éxito");
+                    int eleccion = scanner.nextInt();
+
+                    int dañoGuerrero = 0;
+                    double probExitoGuerrero = 0;
+
+                    if (eleccion == 1) {
+                        dañoGuerrero = ARMA_1;
+                        probExitoGuerrero = PORCENTAJE_EXITO_ARMA_1;
+                    } else if (eleccion == 2) {
+                        dañoGuerrero = ARMA_2;
+                        probExitoGuerrero = PORCENTAJE_EXITO_ARMA_2;
+                    } else if (eleccion == 3) {
+                        dañoGuerrero = ARMA_3;
+                        probExitoGuerrero = PORCENTAJE_EXITO_ARMA_3;
+                    } else {
+                        System.out.println("Elección inválida, pierdes el turno.");
+                    }
+
+                    if (Math.random() < probExitoGuerrero) {
+                        vidaVampiro -= dañoGuerrero;
+                        System.out.println("El vampiro recibe una ostia (-" + dañoGuerrero + " vida)");
+                    } else {
+                        System.out.println("El vampiro esquiva la hostia");
+                    }
+                } else if (accion == 2) {
+                    bebiendoPocion = true;
+                    turnosParaCurarse = 3;
+                    System.out.println("El héroe comienza a beber la poción...");
                 } else {
-                    System.out.println("El vampiro esquiva la hostia");
+                    System.out.println("Acción inválida.");
                 }
             }
 
@@ -99,8 +127,11 @@ class Batalla {
                     probExitoVampiro = PORCENTAJE_EXITO_ATAQUE_3;
                 }
 
-                System.out.println("¿Deseas intentar protegerte del ataque del vampiro? (true/false)");
-                boolean usarEscudo = scanner.nextBoolean();
+                boolean usarEscudo = false;
+                if (!guerreroDesmayado && !bebiendoPocion) {
+                    System.out.println("¿Deseas intentar protegerte del ataque del vampiro? (true/false)");
+                    usarEscudo = scanner.nextBoolean();
+                }
 
                 if (Math.random() < probExitoVampiro) {
                     if (usarEscudo && Math.random() < PORCENTAJE_EXITO_DEFENSA) {
