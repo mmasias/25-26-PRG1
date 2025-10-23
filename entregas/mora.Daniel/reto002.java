@@ -1,6 +1,5 @@
-package entregas;
+class reto002 {
 
-public class reto002 {
     public static void main(String[] args) {
 
         final int DAÑO_ESPADA = 2;
@@ -38,6 +37,7 @@ public class reto002 {
         } while (!algunMuerto);
         String elGanador = vidaGuerrero > 0 ? "Guerrero" : "Vampiro";
         System.out.println("Ganó el " + elGanador);
+
     }
 
 }
