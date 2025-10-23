@@ -2,6 +2,12 @@
 
 > *Entiéndase "deberíamos saber" como una combinación de "nos debería sonar", "no nos debería sorprender", "deberíamos conocer", "deberíamos saber manejar", en función del tema abordado. En cualquier caso, lo mínimo es "no nos debería sorprender" y deberíamos poder tener una mínima conversación o lectura sobre estos temas.*
 
+## 07 de octubre
+
+- Propuestas de soluciones a los retos aplicando a rajatabla los criterios de código limpio para el nombrado de variables.
+- Ejercicio práctico y completo de situación en un repo: *¿quién soy? ¿dónde estoy? ¿qué puedo hacer? ¿qué no puedo hacer? ¿por qué no puedo hacer lo que quiero hacer? ¿cómo hacer lo que quiero hacer?*.
+- Introducción a la programación modular: estructuras de control.
+
 ## 2 de octubre
 
 - ¡Código limpio!
