@@ -4,7 +4,7 @@ Repo de materiales y proyectos de la asignatura **Programación 1** del [Grado d
 
 ## Curso [25][26]
 
-- [Temario](https://github.com/mmasias/prg1)
+- [Temario](https://github.com/mmasias/prg1) - [Mapa](https://github.com/users/mmasias/projects/8/views/1)
   - [A día de hoy, deberíamos saber...](temario/aDiaDeHoy.md)
   - [Casos de uso](temario/casosDeUso/README.md)
   - [Ejercicios](temario/ejercicios/README.md)
