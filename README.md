@@ -29,5 +29,5 @@ Repo de materiales y proyectos de la asignatura **Programación 1** del [Grado d
 NOTA: *Algunos enlaces podrían requerir **credenciales de acceso al campus** o a otros espacios colaborativos.*
 
 - [Hoja de asistencia et-al](https://docs.google.com/spreadsheets/d/1e2lT0d0E6NBNk782fjRDihj1v6brBXyhqw6ylt0Wxmg/edit?usp=sharing)
-- Libro de la asignatura
-- Este repo, versión de ediciones pasadas
+- [Libro de la asignatura](https://campus.uneatlantico.es/pluginfile.php/20300/mod_folder/content/0/0030%20-%20Java.pdf?forcedownload=1)
+- Este repo, versión de ediciones pasadas: [24-25](https://github.com/mmasias/24-25-PRG1), [23-24](https://github.com/mmasias/23-24-PRG1), [22-23](https://github.com/mmasias/prg1-22-23).
