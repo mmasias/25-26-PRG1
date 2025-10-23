@@ -48,9 +48,9 @@ public class BatallaHeroeVampirosextendido {
             }else if(arma==3){
                 if(Math.random()<PROBABILIDAD_ARMA3){
                     vidaVampiro = vidaVampiro - ARMA3;
-                    System.out.println("El vampiro recibe daño del arma3");
+                    System.out.println("El vampiro recibe daño");
                 }else{
-                    System.out.println("El vampiro esquiva el arma3");
+                    System.out.println("El vampiro esquiva");
                 }
             }
 
@@ -63,24 +63,24 @@ public class BatallaHeroeVampirosextendido {
              if(ataque == 1){
                 if(Math.random()<PROBABILIDAD_ATAQUE1){
                 vidaGuerrero = vidaGuerrero - ATAQUE1;
-                System.out.println("El guerrero recibe daño del ataque1");
+                System.out.println("El guerrero recibe daño");
                 }else{
-                     System.out.println("El guerrero esquiva el ataque1");
+                     System.out.println("El guerrero esquiva");
                 }
 
             }else if(ataque==2){
                if(Math.random()<PROBABILIDAD_ATAQUE2){
                 vidaGuerrero = vidaGuerrero - ATAQUE2;
-                System.out.println("El guerrero recibe daño del ataque2");
+                System.out.println("El guerrero recibe daño");
                }else{
-                System.out.println("El guerrero esquiva el ataque2");
+                System.out.println("El guerrero esquiva");
                }
             }else if(ataque==3){
                 if(Math.random()<PROBABILIDAD_ATAQUE3){
                     vidaGuerrero = vidaGuerrero - ATAQUE3;
-                    System.out.println("El guerrero recibe daño del ataque3");
+                    System.out.println("El guerrero recibe daño");
                 }else{
-                    System.out.println("El guerrero esquiva el ataque3");
+                    System.out.println("El guerrero esquiva");
                 }
             }
             }
