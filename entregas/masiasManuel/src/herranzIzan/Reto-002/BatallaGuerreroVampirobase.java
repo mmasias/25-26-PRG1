@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class BatallaGuerreroVampirobase {
   public static void main(String[] args) {
+    final int DAÑO_ESPADA = 2;
     int vidaGuerrero = 20;
     final double PORCENTAJE_EXITO_GUERRERO = 0.5;
 
