@@ -4,9 +4,9 @@ Los retos se irán proponiendo, habitualmente luego de una disertación teórica
 
 ## Entrega 001
 
-- La entrega a estos retos se hará a la rama *entrega-001* del repositorio de la asignatura.
-- La fecha de recepción de los mismos será hasta el día xx de XX
+- La entrega a estos retos se hará a la rama **reto-001** del repositorio de la asignatura.
+- La fecha de recepción de los mismos será hasta el día *porDeterminar*
 
 |Retos|
 |-|
-[Detalle del reto](/evaluaciones/retos/reto001.md)
+[Reto 001](reto001.md)
