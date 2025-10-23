@@ -2,11 +2,6 @@
 
 Los retos se irán proponiendo, habitualmente luego de una disertación teórica. Cada uno tendrá sus reglas de resolución y serán de entrega individual, aunque se puede (y se anima) a trabajarlos en grupo.
 
-## Entrega 001
-
-- La entrega a estos retos se hará a la rama **reto-001** del repositorio de la asignatura.
-- La fecha de recepción de los mismos será hasta el día *porDeterminar*
-
 |Retos|Rama de entrega|Fecha de entrega
 |-|-|-|
 [Reto 001](reto001.md)|reto-001|domingo 12 de octubre, 23:59:59
