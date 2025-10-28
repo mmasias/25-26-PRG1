@@ -1,4 +1,3 @@
-package PiedraPapelTijera;
 import java.util.Scanner;
 
 class PiedraPapelTijeraTernario {

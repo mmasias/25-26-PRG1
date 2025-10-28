@@ -1,4 +1,3 @@
-package Clasificadores;
 import java.util.Scanner;
 
 class ClasificacionConductor {
