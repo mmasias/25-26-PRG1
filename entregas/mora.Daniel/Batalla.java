@@ -1,4 +1,4 @@
-class reto002 {
+class Batalla {
 
     public static void main(String[] args) {
 
