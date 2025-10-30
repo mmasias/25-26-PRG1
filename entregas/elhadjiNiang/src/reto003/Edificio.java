@@ -8,36 +8,51 @@ class Edificio {
         int hora = 0;
         int horasTotales = 24 * 7;
         int dia = 0;
-        final string VENTANA_
+
+        final String VENTANA_CERRADA = "[ ]";
+        final String LUZ_APAGADA = "[º]";
+        final String LUZ_ENCENDIDA = "[*]";
+
+        final double PERSIANA_ABIERTA = 0.7;
+        final double PERSIANA_CERRADA = 0.6;
+
+        boolean encendida;
+        boolean abierta;
 
         for (int i = 0; i <= horasTotales; i++) {
+
+            abierta = Math.random() < PERSIANA_ABIERTA;
+            encendida = Math.random() < PERSIANA_CERRADA;
 
             hora++;
 
             if (hora == 24) {
                 hora = 1;
                 dia = dia + 1;
+                System.out.println("               __/\\__\r\n" +
+                                   "  |    |    |  |####|  |    |    |  \r\n" +
+                                   "====================================\r\n");
+    
+                for (int piso = 1; piso < 7; piso++) {
+                    for (int columna = 1; columna < piso; columna++) {
+                        System.out.print(!abierta ? VENTANA_CERRADA : encendida ? LUZ_ENCENDIDA : LUZ_APAGADA );
+    
+                    }
+                    ;
+                }
+                ;
+    
+                System.out.println(
+    
+                               "------------------------------------\r\n" +
+                                "     ==========================\r\n" +
+                                "   ==============================\r\n" +
+                                " ==================================\r\n" +
+    
+                                "Dia " + dia + " - " + hora + ":00h ");
+    
+            }
+        };
             };
-            
 
-
-            System.out.print("      __/\\__\r\n" +
-                    "  |    |    |  |####|  |    |    |  \r\n" +
-                    "====================================\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P7\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P6\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P5\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P4\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P3\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P2\r\n" +
-                    ":[ ]::[ ]::[ ]:[    ]:[ ]::[ ]::[ ]: - P1\r\n" +
-                    "------------------------------------\r\n" +
-                    "     ==========================\r\n" +
-                    "   ==============================\r\n" +
-                    " ==================================\r\n" +
-
-                    "Dia " + dia + " - " + hora + ":00h ");
-
-        }
-    };
 }
