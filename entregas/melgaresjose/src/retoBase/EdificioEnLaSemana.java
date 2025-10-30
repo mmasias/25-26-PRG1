@@ -22,10 +22,12 @@ class EdificioEnLaSemana {
                 for(int habitacion = 1; habitacion <= HABITACIONES_POR_PLANTA; habitacion++) {
                     estaAbierta = Math.random() < PROBABILIDAD_ABIERTA;
                     luzEstaEncendida = Math.random() < PROBABILIDAD_LUZ_ENCENDIDA;
-                    if(!estaAbierta)
+                    if(!estaAbierta) {
                         System.out.print(PERSIANA_CERRADA);
-                    else                     
+                    }
+                    else {
                         System.out.print(luzEstaEncendida ? LUZ_ENCENDIDA : LUZ_APAGADA);
+                    }                     
                     System.out.print(habitacion == 3 ? COLUMNA_CENTRAL: "");
                 }
                 System.out.print(" - Planta " + planta);
