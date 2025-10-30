@@ -30,10 +30,19 @@ class EdificioEnLaSemana {
                 System.out.print(" - Planta " + planta);
                 System.out.println();
             }
+            System.out.println("===================================");
+            System.out.println("|               /~\\               |");
+            System.out.println("   [< Agonia]   | |[Mortificacion>]");
+            System.out.println("----------------| |-----------------");
+            System.out.println("||     /====================\\    ||");
+            System.out.println("||    /======================\\   ||");
+            System.out.println("||   /========================\\  ||");
+
             
             numeroDia = (int) (i / HORAS_EN_DIA) + 1;
             numeroHora = (i % HORAS_EN_DIA);
             System.out.println("Dia: " + numeroDia + " hora: " + numeroHora+ ":00");
+            System.out.println();
             System.out.println();
         }
     }
