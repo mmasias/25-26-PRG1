@@ -1,5 +1,5 @@
 
-public class HotelSimulador {
+public class RetoEdificioBase {
 
     public static void main(String[] args) {
         final int PLANTAS = 7;
