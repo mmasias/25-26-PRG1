@@ -21,7 +21,7 @@ class ConversorSegundos {
         segundos = segundos % MINUTOS_EN_SEGUNDOS;
 
         System.out.println();
-        System.out.println("Resultado:");
+        System.out.println("Resultado: ");
         System.out.println("Días: " + dias);
         System.out.println("Horas: " + horas);
         System.out.println("Minutos: " + minutos);
