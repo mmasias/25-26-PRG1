@@ -5,7 +5,6 @@ public class HotelSimulador {
         final int PLANTAS = 7;
         final int HABITACIONES = 6;
 
-        // simulamos 7 días, 24 horas cada día
         for (int dia = 1; dia <= 7; dia++) {
             for (int hora = 1; hora <= 24; hora++) {
                 System.out.println("Día " + dia + " - " + hora + ":00h");
