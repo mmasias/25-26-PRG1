@@ -22,6 +22,7 @@ public class DibujadorDeEdificio {
 
         for (int dia = 1; dia <= 7; dia++) {
             for (int hora = 0; hora < 24; hora++) {
+                System.out.println("Son las " + hora +":00 del día " + dia);
                 System.out.println(TECHO_EDIFICIO_ARRIBA);
                 System.out.println(TECHO_EDIFICIO_MEDIO);
                 System.out.println(TECHO_EDIFICIO_ABAJO);
