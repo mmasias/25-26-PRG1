@@ -8,7 +8,8 @@ class EdificioEnLaSemana {
         final int HABITACIONES_POR_PLANTA = 6;
         final String LUZ_APAGADA = ":[º]:";
         final String LUZ_ENCENDIDA = ":[*]:";
-        String PERSIANA_CERRADA = ":[ ]:";
+        final String PERSIANA_CERRADA = ":[ ]:";
+        final String COLUMNA_CENTRAL = "[   ]";
         boolean estaAbierta = false;
         boolean luzEstaEncendida = false;
         int numeroDia;
@@ -25,7 +26,7 @@ class EdificioEnLaSemana {
                         System.out.print(PERSIANA_CERRADA);
                     else                     
                         System.out.print(luzEstaEncendida ? LUZ_ENCENDIDA : LUZ_APAGADA);
-                    System.out.print(habitacion == 3 ? "[   ]": "");
+                    System.out.print(habitacion == 3 ? COLUMNA_CENTRAL: "");
                 }
                 System.out.print(" - Planta " + planta);
                 System.out.println();
