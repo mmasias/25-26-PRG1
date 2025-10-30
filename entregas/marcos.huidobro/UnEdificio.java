@@ -65,7 +65,6 @@ class UnEdificio {
                     System.out.println(fila);
                 }
 
-                // Planta baja
 
                 System.out.println(SUELO);
                 System.out.println();
