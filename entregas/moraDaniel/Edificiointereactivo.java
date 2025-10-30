@@ -2,7 +2,7 @@ package entregas.moraDaniel;
 
 import java.util.Random;
 
-class SimulacionHotel {
+class Edificiointereactivo {
     public static void main(String[] args) {
         Random random = new Random();
 
