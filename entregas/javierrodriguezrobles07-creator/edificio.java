@@ -1,157 +1,84 @@
 import java.util.Random;
 
-public class edificio {
-
+class SimulacionHotel {
     public static void main(String[] args) {
-        final int PLANTAS = 7;           
-        final int HABITACIONES_POR_PLANTA = 6;
+        Random random = new Random();
+
+        final int PLANTAS = 7;
+        final int HABITACIONES = 6;
         final int DIAS = 7;
-        final int HORAS_DIA = 24;
+        final int HORAS = 24;
 
-        final double PROB_PERSIANA_ABIERTA = 0.70; 
-        final double PROB_LUZ_ENCENDIDA = 0.60;    
-        final double PROB_RAYO_POR_HORA = 0.20;   
-        final double PROB_MANTENIMIENTO_DIA = 0.05;
+        final double PROB_PERSIANA = 0.7;
+        final double PROB_LUZ = 0.6;
+        final double PROB_RAYO = 0.2;
+        final double PROB_MANTENIMIENTO = 0.05;
 
-        Random rnd = new Random();
+        int dia = 1;
+        int consumoTotalSemana = 0;
 
-        int[] consumosDiarios = new int[DIAS];
+        while (dia <= DIAS) {
+            int consumoDia = 0;
+            boolean hayRayo = false;
+            int columnaRayo = 0;
+            boolean hayMantenimiento = false;
+            int plantaMantenimiento = 0;
+            int horaMantenimiento = 0;
 
-        for (int dia = 1; dia <= DIAS; dia++) {
-            
-            boolean[] columnaAveriada = new boolean[HABITACIONES_POR_PLANTA];
-            int plantaEnMantenimiento = -1; 
-
-            
-            if (rnd.nextDouble() < PROB_MANTENIMIENTO_DIA) {
-                plantaEnMantenimiento = 1 + rnd.nextInt(PLANTAS); // 1..7
+            if (random.nextDouble() < PROB_MANTENIMIENTO) {
+                hayMantenimiento = true;
+                plantaMantenimiento = 1 + random.nextInt(PLANTAS);
+                horaMantenimiento = random.nextInt(HORAS);
             }
 
-            boolean rayoCaidoHoy = false;
-            int columnaRayo = -1;
-            Integer horaRayo = null;
-
-            int consumoDelDia = 0;
-
-            
-            for (int hora = 0; hora < HORAS_DIA; hora++) {
-                if (!rayoCaidoHoy) {
-                    for (int col = 0; col < HABITACIONES_POR_PLANTA; col++) {
-                        if (rnd.nextDouble() < PROB_RAYO_POR_HORA) {
-                            columnaAveriada[col] = true;
-                            rayoCaidoHoy = true;
-                            columnaRayo = col + 1; 
-                            horaRayo = hora;
-                            break; 
-                        }
-                    }
+            int hora = 0;
+            while (hora < HORAS) {
+                if (!hayRayo && random.nextDouble() < PROB_RAYO) {
+                    hayRayo = true;
+                    columnaRayo = 1 + random.nextInt(HABITACIONES);
                 }
 
-                
-                int contadorLucesHora = 0;
-
-                
-                System.out.println();
-                System.out.println("               __/\\__");
-                System.out.println("  |    |    |  |####|  |    |    |  ");
                 System.out.println("====================================");
+                int p = PLANTAS;
+                while (p >= 1) {
+                    System.out.print(":");
+                    int c = 1;
+                    while (c <= HABITACIONES) {
+                        String celda = "[ ]";
+                        boolean persianaAbierta = random.nextDouble() < PROB_PERSIANA;
+                        boolean luzEncendida = random.nextDouble() < PROB_LUZ;
 
-                
-                for (int p = PLANTAS; p >= 1; p--) {
-                    StringBuilder fila = new StringBuilder();
-                    fila.append(":");
-                    for (int c = 1; c <= HABITACIONES_POR_PLANTA; c++) {
-                        if (c == 4) {
-                        }
-
-                        
-                        boolean averia = columnaAveriada[c - 1];
-                        boolean mantenimiento = (p == plantaEnMantenimiento);
-
-                        String simbolo;
-                        if (mantenimiento) {
-                            simbolo = "[#]";
-                        } else if (averia) {
-                            simbolo = "[X]";
+                        if (hayRayo && c == columnaRayo) {
+                            celda = "[X]";
+                        } else if (hayMantenimiento && p == plantaMantenimiento && hora >= horaMantenimiento) {
+                            celda = "[#]";
+                        } else if (persianaAbierta && luzEncendida) {
+                            celda = "[*]";
+                            consumoDia++;
+                        } else if (persianaAbierta && !luzEncendida) {
+                            celda = "[º]";
                         } else {
-                           
-                            boolean persianaAbierta = rnd.nextDouble() < PROB_PERSIANA_ABIERTA;
-                            boolean luzEncendida = rnd.nextDouble() < PROB_LUZ_ENCENDIDA;
-
-                            
-                            if (averia || mantenimiento) luzEncendida = false;
-
-                           
-                            if (luzEncendida) contadorLucesHora++;
-
-                           
-                            if (persianaAbierta) {
-                                simbolo = "[ ]";
-                            } else {
-                                simbolo = luzEncendida ? "[*]" : "[º]";
-                            }
+                            celda = "[ ]";
                         }
-
-                       
-                        fila.append(simbolo);
-
-                       
-                        if (c == 3) {
-                            fila.append(":");                
-                            fila.append("[    ]");           
-                            fila.append(":");                
-                        }
-                        if (c < HABITACIONES_POR_PLANTA) fila.append(":");
+                        System.out.print(celda + ":");
+                        c++;
                     }
-
-                   
-                    fila.append(" - P").append(p);
-                    System.out.println(fila.toString());
+                    System.out.println(" - P" + p);
+                    p--;
                 }
-
                 System.out.println("------------------------------------");
-                System.out.println("     ==========================");
-                System.out.println("   ==============================");
-                System.out.println(" ==================================");
-
-                
-                System.out.println();
-                System.out.printf("Dia %d - %02d:00h Consumo hora: %d%n", dia, hora, contadorLucesHora);
-
-               
-                if (rayoCaidoHoy && hora == horaRayo) {
+                System.out.println("Dia " + dia + " - " + hora + ":00  Consumo hora: " + consumoDia);
+                if (hayRayo)
                     System.out.println("Un rayo ha inutilizado la columna " + columnaRayo);
-                }
-                if (plantaEnMantenimiento != -1 && hora == 0) {
-                    System.out.println(plantaEnMantenimiento + "º planta en mantenimiento");
-                }
+                if (hayMantenimiento && hora == horaMantenimiento)
+                    System.out.println(plantaMantenimiento + "ª planta en mantenimiento");
 
-                consumoDelDia += contadorLucesHora;
-            } 
-
-            consumosDiarios[dia - 1] = consumoDelDia;
-           
-            System.out.println();
-            System.out.print("CONSUMOS: ");
-            for (int d = 1; d <= dia; d++) {
-                System.out.print("D" + d + ": " + consumosDiarios[d - 1] + " | ");
+                hora++;
             }
-            System.out.println();
-            System.out.println("Consumo total dia " + dia + ": " + consumoDelDia);
-            System.out.println("----------------------------------------------------");
-        } 
-
-      
-        System.out.println();
-        System.out.print("CONSUMOS: ");
-        int suma = 0;
-        for (int d = 0; d < DIAS; d++) {
-            System.out.print("D" + (d + 1) + ": " + consumosDiarios[d] + " | ");
-            suma += consumosDiarios[d];
+            System.out.println("Consumo total del día " + dia + ": " + consumoDia);
+            consumoTotalSemana += consumoDia;
+            dia++;
         }
-        double media = (double) suma / DIAS;
-        System.out.println();
-        System.out.printf("Media de consumo semanal: %.0f%n", media);
+        System.out.println("Media semanal: " + (consumoTotalSemana / 7));
     }
 }
-
