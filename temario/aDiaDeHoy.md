@@ -2,6 +2,23 @@
 
 > *Entiéndase "deberíamos saber" como una combinación de "nos debería sonar", "no nos debería sorprender", "deberíamos conocer", "deberíamos saber manejar", en función del tema abordado. En cualquier caso, lo mínimo es "no nos debería sorprender" y deberíamos poder tener una mínima conversación o lectura sobre estos temas.*
 
+## 23 de octubre
+
+- Repaso de todo lo visto hasta hoy, revisión de propuestas de código enviadas al repo, varias formas de resolver un mismo problema, código limpio, buenas prácticas.
+
+## 9 de octubre
+
+- Revisión de más soluciones, enfatizando el concepto de código limpio.
+- Bloques de código como elementos que apuntan a la unidad y que crean un ámbito.
+- Como estos bloques se relacionan con las variables: visibilidad.
+- Estructuras de control para gobernas los bloques de código: alternativas (if) y repetitivas (while)
+
+## 07 de octubre
+
+- Propuestas de soluciones a los retos aplicando a rajatabla los criterios de código limpio para el nombrado de variables.
+- Ejercicio práctico y completo de situación en un repo: *¿quién soy? ¿dónde estoy? ¿qué puedo hacer? ¿qué no puedo hacer? ¿por qué no puedo hacer lo que quiero hacer? ¿cómo hacer lo que quiero hacer?*.
+- Introducción a la programación modular: estructuras de control.
+
 ## 2 de octubre
 
 - ¡Código limpio!
