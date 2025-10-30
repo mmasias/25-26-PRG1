@@ -1,5 +1,5 @@
 
-public class HotelEstadisticas {
+public class RetoEdificioextendido {
 
     public static void main(String[] args) {
         final int PLANTAS = 7;
