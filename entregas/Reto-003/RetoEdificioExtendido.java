@@ -1,5 +1,5 @@
 
-public class RetoEdificioextendido {
+public class RetoEdificioExtendido {
 
     public static void main(String[] args) {
         final int PLANTAS = 7;
