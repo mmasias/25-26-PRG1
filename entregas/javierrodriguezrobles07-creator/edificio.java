@@ -81,11 +81,10 @@ public class edificio {
                             
                             if (averia || mantenimiento) luzEncendida = false;
 
-                            // Contabilizar consumo real (si la lámpara está encendida, aunque no sea visible)
+                           
                             if (luzEncendida) contadorLucesHora++;
 
-                            // Mostrar: si persiana abierta -> "[ ]" (vacío)
-                            // si persiana cerrada -> ver estado de la luz: encendida "[*]" o apagada "[º]"
+                           
                             if (persianaAbierta) {
                                 simbolo = "[ ]";
                             } else {
@@ -93,14 +92,14 @@ public class edificio {
                             }
                         }
 
-                        // Añadir símbolo en la posición correspondiente
+                       
                         fila.append(simbolo);
 
                        
                         if (c == 3) {
-                            fila.append(":");                // cierre izquierda
-                            fila.append("[    ]");           // hueco central
-                            fila.append(":");                // apertura derecha
+                            fila.append(":");                
+                            fila.append("[    ]");           
+                            fila.append(":");                
                         }
                         if (c < HABITACIONES_POR_PLANTA) fila.append(":");
                     }
