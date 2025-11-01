@@ -1,6 +1,6 @@
 public class DibujadorDeEdificio {
     public static void main(String[] args) {
-        final String TECHO_EDIFICIO_ARRIBA= "               __/\\__";
+        final String TECHO_EDIFICIO_ARRIBA = "               __/\\__";
         final String TECHO_EDIFICIO_MEDIO = "  |    |    |  |####|  |    |    |  ";
         final String TECHO_EDIFICIO_ABAJO = "====================================";
         final String BASE_EDIFICIO = "------------------------------------";
@@ -39,17 +39,16 @@ public class DibujadorDeEdificio {
 
                     System.out.print("---P" + (NUMERO_DE_PLANTAS + 1 - planta));
                     System.out.println();
-                    
+
                 }
 
                 System.out.println(BASE_EDIFICIO);
                 System.out.println(PRIMER_SEPARADOR_ENTRE_EDIFICIOS);
                 System.out.println(SEGUNDO_SEPARADOR_ENTRE_EDIFICIOS);
                 System.out.println(TERCER_SEPARADOR_ENTRE_EDIFICIOS);
-                System.out.println("Son las " + hora +":00 del día " + dia);
+                System.out.println("Son las " + hora + ":00 del día " + dia);
             }
         }
 
-        
     }
 }
