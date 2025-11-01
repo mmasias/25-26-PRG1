@@ -31,5 +31,6 @@ public class PiedraPapelTijeras {
         } else {
             System.out.println("Perdiste");
         }
+        scanner.close();
     }
 }
