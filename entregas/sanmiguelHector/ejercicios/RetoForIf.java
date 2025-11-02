@@ -10,7 +10,7 @@ class RetoForIf {
 
                 if (
                 // El código desde aqui *********************************
-                    i < 22 || j < 22
+                    (!(i == (dimension + 1)/2 && j == (dimension + 1)/2))
                 // El código hasta aquí *********************************
                 ) {
                     System.out.print("(*)");
