@@ -10,7 +10,7 @@ class RetoForIf {
 
                 if (
                 // El código desde aqui *********************************
-                    (i > 1 && i < 6) || (j > 1 && j < 6)
+                    (i > 1 && i < 21) && (j > 1 && j < 21)
                 // El código hasta aquí *********************************
                 ) {
                     System.out.print("(*)");
