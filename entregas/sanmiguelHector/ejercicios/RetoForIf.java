@@ -10,7 +10,8 @@ class RetoForIf {
 
                 if (
                 // El código desde aqui *********************************
-                    (i > 1 && i < 21) && (j > 1 && j < 21)
+                    (i == 2 || i == dimension - 1 || j == 2 || j == dimension - 1)
+                        && (i > 1 && i < dimension && j > 1 && j < dimension)
                 // El código hasta aquí *********************************
                 ) {
                     System.out.print("(*)");
