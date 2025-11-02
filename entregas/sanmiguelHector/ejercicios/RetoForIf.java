@@ -10,7 +10,7 @@ class RetoForIf {
 
                 if (
                 // El código desde aqui *********************************
-                (((i - 1) / 2) + ((j - 1) / 2)) % 2 == 0 || i == dimension || j == dimension
+                    (i + j - 1) % 4 == 0 
                 // El código hasta aquí *********************************
                 ) {
                     System.out.print("(*)");
