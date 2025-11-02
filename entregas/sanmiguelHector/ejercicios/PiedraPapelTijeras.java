@@ -1,3 +1,4 @@
+package entregas.sanmiguelHector.ejercicios;
 import java.util.Scanner;
 import java.util.Random;
 
