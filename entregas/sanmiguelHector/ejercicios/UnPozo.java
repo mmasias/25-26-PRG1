@@ -12,6 +12,7 @@ public class UnPozo {
         final String BASE_POZO = "  [][][][][][][][][] ";
         final int ANCHURA_POZO = 7;
         final String CARACOL = "_@)_/'";
+        final String CARACOL_AHOGADO = "_@)_-,";
         int fila;
         int columna;
 
@@ -24,21 +25,34 @@ public class UnPozo {
         System.out.println("¿A qué altura está el caracol?");
         int alturaDelCaracol = scanner.nextInt();
 
-
         System.out.println(PARTE_ARRIBA_POZO);
         for (fila = 1; fila <= profundidadDelPozo; fila++) {
             if (fila == alturaDelCaracol) {
                 for (columna = 1; columna <= ANCHURA_POZO - 1; columna++) {
-                    if (columna == 1) {
-                        System.out.print("  " + LATERAL_POZO);
-                    }
-                    if (columna == 3) {
-                        System.out.print(CARACOL);
-                    }
-                    if (columna == ANCHURA_POZO - 1) {
-                        System.out.print(LATERAL_POZO);
-                    } else if (columna != 3) {
-                        System.out.print(AIRE);
+                    if (alturaDelCaracol > profundidadDelPozo - metrosDeAgua) {
+                        if (columna == 1) {
+                            System.out.print("  " + LATERAL_POZO);
+                        }
+                        if (columna == 3) {
+                            System.out.print(CARACOL_AHOGADO);
+                        }
+                        if (columna == ANCHURA_POZO - 1) {
+                            System.out.print(LATERAL_POZO);
+                        } else if (columna != 3) {
+                            System.out.print(AGUA);
+                        }
+                    } else {
+                        if (columna == 1) {
+                            System.out.print("  " + LATERAL_POZO);
+                        }
+                        if (columna == 3) {
+                            System.out.print(CARACOL);
+                        }
+                        if (columna == ANCHURA_POZO - 1) {
+                            System.out.print(LATERAL_POZO);
+                        } else if (columna != 3) {
+                            System.out.print(AIRE);
+                        }
                     }
                 }
             } else if (fila <= profundidadDelPozo - metrosDeAgua) {
@@ -66,6 +80,6 @@ public class UnPozo {
             System.out.println();
         }
         System.out.println(BASE_POZO);
-    scanner.close();
+        scanner.close();
     }
 }
