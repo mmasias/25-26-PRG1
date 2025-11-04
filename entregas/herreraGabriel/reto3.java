@@ -6,7 +6,7 @@ public class reto3 {
         final int NUMERO_DE_HABITACIONES = 6;
         final double PROBABILIDAD_PERSIANA_ABIERTA = 0.7;
         final double PROBABILIDAD_LUZ_ENCENDIDA = 0.6;
-        final String VENTANA_CERRADA = "[ ]";
+        final String VENTANA_CERRADA = "[]";
         final String LUZ_APAGADA = "[º]";
         final String LUZ_ENCENDIDA = "[*]";
 
