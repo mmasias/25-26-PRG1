@@ -1,4 +1,4 @@
-package entregas;
+package entregas.moraDaniel;
 
 import java.util.Scanner;
 import java.util.Random;
