@@ -14,7 +14,7 @@ public class Reto_003 {
         final String SEPARADOR = ":[    ]:";
         final String VENTANA_CERRADA = ":[ ]:";
         final String VENTANA_ABIERTA_SIN_LUZ = ":[º]:";
-        final String VENTANA_ABIERTA_CON_LUZ = ":[*]:";
+        final String VENTANA_ABIERTA_CON_LUZ = ":   [*]:";
 
         for (int dia = 1; dia < 7; dia++) {
             for (int hora = 0; hora < 24; hora++) {

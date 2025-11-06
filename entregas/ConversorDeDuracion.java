@@ -17,7 +17,7 @@ public class ConversorDeDuracion {
 
         int horas = segundos / SEGUNDO_DE_HORA;
 
-        segundos = segundos % (SEGUNDO_DE_HORA);
+        segundos = segundos % SEGUNDO_DE_HORA;
 
         int minutos = segundos / SEGUNDOS_DE_MINUTO;
 

@@ -27,7 +27,7 @@ public class CalculadoraDePrecioFinal {
         System.out.println("Precio base: " + euros + " €");
         System.out.println("IVA aplicado: " + iva + "%");
 
-        double descuento = 0;
+        double descuento;
         
         descuento = unidades < 10 ? DESCUENTO1: (unidades < 50 ? DESCUENTO2 : (unidades < 100 ? DESCUENTO3 : DESCUENTO4));
         System.out.println("Descuento aplicado: " + descuento * 100 + "%");
