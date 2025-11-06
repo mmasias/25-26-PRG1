@@ -1,7 +1,6 @@
-package entregas.BolivarMarcos.ejercicios;
+package entregas.BolivarMarcos.Reto004;
 
 import java.util.Scanner;
-import javax.swing.JPopupMenu;
 
 public class CarreraCamellos {
     public static void main(String[] args) {
