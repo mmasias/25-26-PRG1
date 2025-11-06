@@ -62,7 +62,6 @@ public class CarreraCamellosBase {
             turnos= turnos+1;
             scanner.nextLine();
             algunGanador = posicion>=POSICION_FINAL; 
-            
          } while (!algunGanador);
     }
 }
