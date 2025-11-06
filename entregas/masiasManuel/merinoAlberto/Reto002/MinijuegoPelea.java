@@ -1,4 +1,3 @@
-package entregas.masiasManuel.merinoAlberto.Reto002;
 class MinijuegoPelea{
 
     public static void main(String[] args) {
