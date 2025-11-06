@@ -7,3 +7,4 @@ Los retos se irán proponiendo, habitualmente luego de una disertación teórica
 [Reto 001](reto001.md)|reto-001|domingo 12 de octubre, 23:59:59
 [Reto 002](reto002.md)|reto-002|jueves 23 de octubre, 23:59:59
 [Reto 003](reto003.md)|reto-003|jueves 30 de octubre, 14:15:00
+[Reto 004](reto004.md)|reto-004|jueves 6 de noviembre, 14:15:00
