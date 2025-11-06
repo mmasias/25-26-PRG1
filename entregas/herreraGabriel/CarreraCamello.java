@@ -30,7 +30,7 @@ public class CarreraCamello {
         final String PREFIJO_JUGADOR = "[J]| ";
         final String CAMELLO = ";--;'";
         
-        final int LIMITE_PROB = 100;
+        final int LIMITE_PROBABILIDAD = 100;
         
         int posicion = POSICION_INICIAL;
         int turno = 0;
@@ -58,7 +58,7 @@ public class CarreraCamello {
                 avance = AVANCE_AGUJERO_4;
             }
             
-            final int numeroAleatorio = random.nextInt(LIMITE_PROB) + 1;
+            final int numeroAleatorio = random.nextInt(LIMITE_PROBABILIDAD) + 1;
             final boolean acierta = numeroAleatorio <= probabilidad;
             
             if (acierta) {
