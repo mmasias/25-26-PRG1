@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class CarreraDeCamellos {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         int turno = 0;
@@ -56,9 +57,8 @@ public class CarreraDeCamellos {
                 System.out.println("Turno " + turno + " - No avanza ninguna casilla - Esta en la casilla " + casilla);
             }
 
-            turno++;
         }
-        
+
         System.out.println("El juego ha terminado en la casilla 60");
         scanner.close();
     }
