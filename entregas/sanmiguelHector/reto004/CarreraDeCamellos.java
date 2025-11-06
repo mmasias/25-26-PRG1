@@ -14,7 +14,7 @@ public class CarreraDeCamellos {
         final int AVANCE_ACIERTO_AGUJERO_3 = 4;
         final int AVANCE_ACIERTO_AGUJERO_4 = 6;
 
-        String avanceCamello = " ";
+        String avanceCamello;
         final int LINEA_DE_META = 60;
         final String CAMELLO = ";--;'";
 
