@@ -39,8 +39,8 @@ public class JuegoCarreraDeCamellos {
         System.out.print(CABECERA_PISTA);
         System.out.print(CAMELLO);
         System.out.println(PISTA_01);
-        Scanner Scanner = new Scanner(System.in);
             while (!juegoTerminado) {
+                Scanner Scanner = new Scanner(System.in);
                 System.out.println("Elige un agujero (1-4): ");
                 int agujeroElegido = Scanner.nextInt();
                 
@@ -67,13 +67,13 @@ public class JuegoCarreraDeCamellos {
                         }
                         for (int i = 0; i < 1; i++) {
                             System.out.print(ESPACIO_VACIO);
-                            posicionCamello++;
                         }
                         System.out.println(CAMELLO);
                         System.out.println(PISTA_01);
-                        AvanceDe01 = false;
+                        posicionCamello = posicionCamello + 1;
+                    } else {
+                        System.out.println("has fallado la pelota y no has avanzado esta vez.");
                     }
-                    movimientoDeAgujero01 = false;
                 }else if (movimientoDeAgujero02) {
                     AvanceDe02 = Math.random() < AGUJERO_02_PROBABILIDAD_EXITO;
                     if (AvanceDe02) {
@@ -87,13 +87,13 @@ public class JuegoCarreraDeCamellos {
                         }
                         for (int i = 0; i < 2; i++) {
                             System.out.print(ESPACIO_VACIO);
-                            posicionCamello++;
                         }
                         System.out.println(CAMELLO);
                         System.out.println(PISTA_01);
-                        AvanceDe02 = false;
+                        posicionCamello = posicionCamello + 2;
+                    } else {
+                        System.out.println("has fallado la pelota y no has avanzado esta vez.");
                     }
-                    movimientoDeAgujero02 = false;
                 }else if (movimientoDeAgujero03) {
                     AvanceDe04 = Math.random() < AGUJERO_03_PROBABILIDAD_EXITO;
                     if (AvanceDe04) {
@@ -107,13 +107,13 @@ public class JuegoCarreraDeCamellos {
                         }
                         for (int i = 0; i < 4; i++) {
                             System.out.print(ESPACIO_VACIO);
-                            posicionCamello++;
                         }
                         System.out.println(CAMELLO);
                         System.out.println(PISTA_01);
-                        AvanceDe04 = false;
+                        posicionCamello = posicionCamello + 4;
+                    } else {
+                        System.out.println("has fallado la pelota y no has avanzado esta vez.");
                     }
-                    movimientoDeAgujero03 = false;
                 } else if (movimientoDeAgujero04) {
                     AvanceDe06 = Math.random() < AGUJERO_04_PROBABILIDAD_EXITO;
                     if (AvanceDe06) {
@@ -127,24 +127,23 @@ public class JuegoCarreraDeCamellos {
                         }
                         for (int i = 0; i < 6; i++) {
                             System.out.print(ESPACIO_VACIO);
-                            posicionCamello++;
                         }
                         System.out.println(CAMELLO);
                         System.out.println(PISTA_01);
-                        AvanceDe06 = false;
+                        posicionCamello = posicionCamello + 6;
+                    } else {
+                        System.out.println("has fallado la pelota y no has avanzado esta vez.");
                     }
-                    movimientoDeAgujero04 = false;
                 } else {
                     System.out.println("Agujero inválido. Pierdes turno.");
                 }
                 
-                cantidadDeTurnos++;
+                cantidadDeTurnos = cantidadDeTurnos + 1;
                 
                 if (posicionCamello >= CASILLA_FINAL) {
                     juegoTerminado = true;
                     System.out.println("¡Felicidades! Has ganado la carrera de camellos en " + cantidadDeTurnos + " turnos.");
                 }
             }
-        Scanner.close();
     }
 }
