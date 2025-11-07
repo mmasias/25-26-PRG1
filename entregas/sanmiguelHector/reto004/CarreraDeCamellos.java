@@ -28,8 +28,14 @@ public class CarreraDeCamellos {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int posicion = 0;
+        int numeroFallos = 0;
 
         while (posicion < LINEA_DE_META) {
+            if (numeroFallos == 3) {
+                posicion = 0;
+                System.out.println("Has fallado 3 veces seguidas, vuelves a la posición inicial");
+                numeroFallos = 0;
+            }
             System.out.println("Elige a qué agujero quieres lanzar la pelota");
             int eleccionJugador = scanner.nextInt();
 
@@ -39,6 +45,7 @@ public class CarreraDeCamellos {
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_1;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
+                    numeroFallos++;
                 }
             }
             if (eleccionJugador == 2) {
@@ -47,6 +54,7 @@ public class CarreraDeCamellos {
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_2;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
+                    numeroFallos++;
                 }
             }
             if (eleccionJugador == 3) {
@@ -55,6 +63,7 @@ public class CarreraDeCamellos {
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_3;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
+                    numeroFallos++;
                 }
             }
             if (eleccionJugador == 4) {
@@ -63,6 +72,7 @@ public class CarreraDeCamellos {
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_4;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
+                    numeroFallos++;
                 }
             }
             avanceCamello = "";
