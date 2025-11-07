@@ -43,6 +43,7 @@ public class CarreraDeCamellos {
                 if (Math.random() < PROBABILIDAD_ACIERTO_AGUJERO_1) {
                     System.out.println("Acertaste, avanzas " + AVANCE_ACIERTO_AGUJERO_1 + " casillas");
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_1;
+                    numeroFallos = 0;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
                     numeroFallos++;
@@ -52,6 +53,7 @@ public class CarreraDeCamellos {
                 if (Math.random() < PROBABILIDAD_ACIERTO_AGUJERO_2) {
                     System.out.println("Acertaste, avanzas " + AVANCE_ACIERTO_AGUJERO_2 + " casillas");
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_2;
+                    numeroFallos = 0;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
                     numeroFallos++;
@@ -61,6 +63,7 @@ public class CarreraDeCamellos {
                 if (Math.random() < PROBABILIDAD_ACIERTO_AGUJERO_3) {
                     System.out.println("Acertaste, avanzas " + AVANCE_ACIERTO_AGUJERO_3 + " casillas");
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_3;
+                    numeroFallos = 0;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
                     numeroFallos++;
@@ -70,6 +73,7 @@ public class CarreraDeCamellos {
                 if (Math.random() < PROBABILIDAD_ACIERTO_AGUJERO_4) {
                     System.out.println("Acertaste, avanzas " + AVANCE_ACIERTO_AGUJERO_4 + " casillas");
                     posicion = posicion + AVANCE_ACIERTO_AGUJERO_4;
+                    numeroFallos = 0;
                 } else {
                     System.out.println("Fallaste, pierdes turno");
                     numeroFallos++;
