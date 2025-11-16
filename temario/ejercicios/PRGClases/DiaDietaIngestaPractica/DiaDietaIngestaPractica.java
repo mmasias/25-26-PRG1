@@ -33,7 +33,6 @@ public class DiaDietaIngestaPractica {
                 break;
             }
 
-        
             if (diaUsuario == 1) {
                 System.out.println("\n============================================");
                 System.out.println("Paciente: " + nombrePaciente);
