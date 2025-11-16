@@ -33,7 +33,7 @@ public class DiaDietaIngestaPractica {
                 break;
             }
 
-            // Mostrar el día seleccionado con el nombre del paciente
+        
             if (diaUsuario == 1) {
                 System.out.println("\n============================================");
                 System.out.println("Paciente: " + nombrePaciente);
