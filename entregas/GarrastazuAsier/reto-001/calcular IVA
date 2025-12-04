@@ -1,0 +1,53 @@
+package asier_reto3;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class CalcularPrecioFinal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+        System.out.print("Precio unitario base (céntimos): ");
+        int precioBaseCentimos = sc.nextInt();
+        
+        System.out.print("Cantidad de unidades: ");
+        int cantidad = sc.nextInt();
+        
+        System.out.print("Tipo de IVA (21, 10 o 4): ");
+        int iva = sc.nextInt();
+        
+            
+    
+        double precioBase = precioBaseCentimos / 100.0;
+        
+        
+        double descuento = 0.0;
+        if (cantidad >= 100) {
+            descuento = 0.15;
+        } else if (cantidad >= 50) {
+            descuento = 0.10;
+        } else if (cantidad >= 10) {
+            descuento = 0.05;
+        }
+        
+        
+        double precioConDescuento = precioBase * (1 - descuento);
+        
+        
+        double precioFinalUnitario = precioConDescuento * (1 + iva / 100.0);
+        
+       
+        double precioTotal = precioFinalUnitario * cantidad;
+        
+        
+        System.out.println();
+        System.out.println("Precio base: " + df.format(precioBase) + " €");
+        System.out.println("IVA aplicado: " + iva + "%");
+        System.out.println("Descuento aplicado: " + (int)(descuento * 100) + "%");
+        System.out.println("Precio unitario final: " + df.format(precioFinalUnitario) + " €");
+        System.out.println("Precio total: " + df.format(precioTotal) + " €");
+        
+        sc.close();
+    }
+}
