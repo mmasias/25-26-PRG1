@@ -1,0 +1,230 @@
+package crespoNicolas;
+
+
+import java.util.Scanner;
+
+
+public class aspiradora2 {
+   public static void main(String[] args) {
+       int[][] superficie = {
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+               { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+       };
+
+
+       int[] posicionAspiradora = { 1, 1 };
+       int [] posicionGato = {1,1};
+       int[][] actores = {posicionAspiradora, posicionGato};
+       Scanner scanner = new Scanner(System.in);
+       String respuestausuario;
+       ensuciarEscenario(superficie);
+       imprimirEscenario(superficie, actores);
+
+
+       do {
+           moverAspiradora(posicionAspiradora, superficie);
+           limpiarEscenario(superficie, posicionAspiradora);
+           moverGato(posicionGato, superficie);
+           gatoEnsucia(superficie, posicionGato);
+           imprimirEscenario(superficie, actores);
+           respuestausuario = scanner.nextLine();
+       } while (estaSucio(superficie));
+
+
+   }
+
+
+
+
+   static void moverGato(int[] posicionGato, int[][] superficie) {
+       final int X = 1;
+       final int Y = 0;
+
+
+       int movimientoX = (int) (Math.random() * 3) - 1;
+       int movimientoY = (int) (Math.random() * 3) - 1;
+
+
+       posicionGato[X] = posicionGato[X] + movimientoX;
+       posicionGato[Y] = posicionGato[Y] + movimientoY;
+
+
+       if (!posicionValida(posicionGato, superficie)) {
+           posicionGato[X] = posicionGato[X] - movimientoX;
+           posicionGato[Y] = posicionGato[Y] - movimientoY;
+       }
+   }
+
+
+   static void gatoEnsucia(int[][] superficie, int[] posicionGato) {
+       for (int i = 0; i < superficie.length; i++) {
+           for (int j = 0; j < superficie[i].length; j++) {
+               if (posicionGato[0] == i && posicionGato[1] == j) {
+                   if (superficie[i][j] < 4) {
+                       superficie[i][j] = superficie[i][j] + 1;
+                   }
+               }
+           }
+       }
+
+
+   }
+
+
+static void gato () {
+
+
+
+
+}
+
+
+   static boolean estaSucio(int[][] superficie) {
+       for (int i = 0; i < superficie.length; i++) {
+           for (int j = 0; j < superficie[i].length; j++) {
+               if (superficie[i][j] > 0) {
+                   return (true);
+               }
+           }
+       }
+       return (false);
+   }
+
+
+   static boolean posicionValida(int[] posicionAspiradora, int[][] superficie) {
+       if (posicionAspiradora[0] < 0 || posicionAspiradora[0] >= superficie.length) {
+           return (false);
+       }
+       if (posicionAspiradora[1] < 0 || posicionAspiradora[1] >= superficie[0].length) {
+           return (false);
+       }
+
+
+       return (true);
+
+
+   }
+
+
+   static void moverAspiradora(int[] posicionAspiradora, int[][] superficie) {
+
+
+       final int X = 1;
+       final int Y = 0;
+
+
+       int movimientoX = (int) (Math.random() * 3) - 1;
+       int movimientoY = (int) (Math.random() * 3) - 1;
+
+
+       posicionAspiradora[X] = posicionAspiradora[X] + movimientoX;
+       posicionAspiradora[Y] = posicionAspiradora[Y] + movimientoY;
+
+
+       if (!posicionValida(posicionAspiradora, superficie)) {
+           posicionAspiradora[X] = posicionAspiradora[X] - movimientoX;
+           posicionAspiradora[Y] = posicionAspiradora[Y] - movimientoY;
+       }
+
+
+   }
+
+
+   static void limpiarEscenario(int[][] superficie, int[] posicionAspiradora) {
+       for (int i = 0; i < superficie.length; i++) {
+           for (int j = 0; j < superficie[i].length; j++) {
+               if (posicionAspiradora[0] == i && posicionAspiradora[1] == j) {
+                   if (superficie[i][j] > 0) { 
+                       superficie[i][j] = superficie[i][j] - 1;
+                   }
+               }
+           }
+       }
+   }
+
+
+   static void imprimirEscenario(int[][] superficie, int[][] actores) {
+
+
+       imprimirBordeHorizontal(superficie[0].length);
+       for (int fila = 0; fila < superficie.length; fila++) {
+           imprimirBordeVertical();
+
+
+           for (int columna = 0; columna < superficie[fila].length; columna++) {
+
+
+               if (fila == actores[0][0] && columna == actores[0][1]) {
+                   System.out.print(mapearAspiradora());
+               } else if (fila == actores[1][0] && columna == actores[1][1]) {
+                   System.out.print("=^=");
+               } else {
+                   int mapita = superficie[fila][columna];
+                   System.out.print(mapear(mapita));
+               }
+
+
+           }
+           imprimirBordeVertical();
+           System.out.println();
+       }
+       imprimirBordeHorizontal(superficie[0].length);
+
+
+       if (actores[0][0] == actores[1][0] && actores[0][1] == actores[1][1]) {
+           System.out.println("Â¡Miau!");
+       }
+   }
+
+
+   static String mapearAspiradora() {
+       return "(_)";
+   }
+
+
+   static void imprimirBordeHorizontal(int length) {
+       System.out.println("===".repeat(length));
+   }
+
+
+   static void imprimirBordeVertical() {
+       System.out.print("|");
+   }
+
+
+   static String mapear(int mapita) {
+
+
+       String[] estadosSuciedad = {
+               " . ",
+               "...",
+               "ooo",
+               "OOO",
+               "***"
+       };
+       return estadosSuciedad[mapita];
+   }
+
+
+   static void ensuciarEscenario(int[][] superficie) {
+
+
+       for (int fila = 0; fila < superficie.length; fila++) {
+           for (int columna = 0; columna < superficie[fila].length; columna++) {
+
+
+               superficie[fila][columna] = (int) (Math.random() * 5);
+           }
+
+
+       }
+   }
+
+
+}
+
