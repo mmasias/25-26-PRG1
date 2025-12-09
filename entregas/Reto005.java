@@ -15,7 +15,7 @@ public class Reto005 {
         };
 
         int[] posicionAspiradora = { 4, 4 };
-        int[] posicionGato = { 2, 8 };
+        int[] posicionGato = { 4, 4 };
 
         ensuciarEscenario(superficie);
         boolean hayQueLimpiar = estaSucia(superficie);
@@ -102,6 +102,9 @@ public class Reto005 {
             System.out.println("|");
         }
         System.out.println(elBorde);
+        if(posicionAspiradora[0]==posicionGato[0] && posicionAspiradora[1]==posicionGato[1]){
+            System.out.println("MIAUUUUUUUUUUUU");
+        }
     }
 
     static String imprimeBordeHorizontal(int length) {
@@ -113,7 +116,7 @@ public class Reto005 {
     }
 
     static String mapearGato() {
-        return "\"^\"";
+        return ">G<";
     }
 
     static void moverGato(int[] posicionGato, int[][] superficie) {
@@ -130,8 +133,11 @@ public class Reto005 {
             posicionGato[X] = posicionGato[X] - movimientoX;
             posicionGato[Y] = posicionGato[Y] - movimientoY;
         } else {
-           
-            superficie[posicionGato[0]][posicionGato[1]] = superficie[posicionGato[0]][posicionGato[1]] + 1;
+            int nuivelSuciedad = superficie[posicionGato[0]][posicionGato[1]] + 1;
+            if (nuivelSuciedad > 4) {
+                nuivelSuciedad = 4;
+            }
+            superficie[posicionGato[0]][posicionGato[1]] = nuivelSuciedad;
         }
     }
 
