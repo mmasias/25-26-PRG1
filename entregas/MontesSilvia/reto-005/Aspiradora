@@ -1,0 +1,152 @@
+import java.util.Scanner;
+
+public class Aspiradora {
+
+    public static void main(String[] args) {
+
+        int[][] superficie = {
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+        };
+
+        int[] posicionAspiradora = { 4, 4 };
+        int[] posicionGato = { 4, 4 }; 
+        int [] [] actores = {posicionAspiradora, posicionGato};
+
+        ensuciarEscenario(superficie);
+        boolean hayQueLimpiar = estaSucia(superficie);
+
+        do {
+            mover(actores, superficie); 
+
+            imprimirEscenario(superficie, actores);
+            afectar(superficie, actores);
+
+            hayQueLimpiar = estaSucia(superficie);
+
+            new Scanner(System.in).nextLine();
+        } while (hayQueLimpiar);
+    }
+
+    static boolean estaSucia(int[][] superficie){
+        for (int i = 0; i < superficie.length; i++) {
+            for (int j = 0; j < superficie[i].length; j++) {
+                 if(superficie[i][j] > 0){
+                     return true;   
+                 }
+            }
+        }
+        return false;
+    }
+
+    static void limpiar(int[][] superficie, int[] aspiradora) {
+        if (estaSucio(superficie[aspiradora[0]][aspiradora[1]])) {
+            superficie[aspiradora[0]][aspiradora[1]]--;
+        }
+    }
+
+    static boolean estaSucio(int tile) {
+        return tile > 0;
+    }
+
+  
+    static void moverGato(int[] posicionGato, int[][] superficie) {
+        final int X = 1;
+        final int Y = 0;
+
+        int movimientoX = (int) (Math.random() * 3) - 1;
+        int movimientoY = (int) (Math.random() * 3) - 1;
+
+        posicionGato[X] += movimientoX;
+        posicionGato[Y] += movimientoY;
+
+        if (!posicionValida(posicionGato, superficie)) {
+            posicionGato[X] -= movimientoX;
+            posicionGato[Y] -= movimientoY;
+        }
+    }
+
+    
+    static void ensuciarPorGato(int[][] superficie, int[] posicionGato) {
+        int x = posicionGato[0];
+        int y = posicionGato[1];
+        if (superficie[x][y] < 4) {
+            superficie[x][y]++;
+        }
+    }
+
+    static void moverAspiradora(int[] posicionAspiradora, int[][] superficie) {
+        final int X = 1;
+        final int Y = 0;
+
+        int movimientoX = (int) (Math.random() * 3) - 1;
+        int movimientoY = (int) (Math.random() * 3) - 1;
+
+        posicionAspiradora[X] += movimientoX;
+        posicionAspiradora[Y] += movimientoY;
+
+        if (!posicionValida(posicionAspiradora, superficie)) {
+            posicionAspiradora[X] -= movimientoX;
+            posicionAspiradora[Y] -= movimientoY;
+        }
+    }
+
+    static boolean posicionValida(int[] posicionAlgo, int[][] superficie) {
+        return posicionAlgo[0] >= 0 && posicionAlgo[0] < superficie.length
+                && posicionAlgo[1] >= 0 && posicionAlgo[1] < superficie[0].length;
+    }
+
+    static void ensuciarEscenario(int[][] superficie) {
+        for (int row = 0; row < superficie.length; row++) {
+            for (int column = 0; column < superficie[row].length; column++) {
+                superficie[row][column] = (int) (Math.random() * 5);
+            }
+        }
+    }
+
+    static void imprimirEscenario(int[][] superficie, int[] posAspiradora, int[] posGato) {
+        String elBorde = imprimeBordeHorizontal(superficie[0].length);
+        System.out.println(elBorde);
+
+        for (int row = 0; row < superficie.length; row++) {
+            System.out.print("|");
+            for (int column = 0; column < superficie[row].length; column++) {
+
+                if (row == posAspiradora[0] && column == posAspiradora[1]) {
+                    System.out.print("(O)");
+                } 
+                else if (row == posGato[0] && column == posGato[1]) {
+                    System.out.print("(^)");
+                } 
+                else {
+                    System.out.print(mapear(superficie[row][column]));
+                }
+            }
+            System.out.println("|");
+        }
+        System.out.println(elBorde);
+        
+    }
+
+    static String imprimeBordeHorizontal(int length) {
+        return "+" + "===".repeat(length) + "+";
+    }
+
+    static String mapear(int tile) {
+
+        String[] estadosSuciedad = {
+                " . ",
+                "...",
+                "ooo",
+                "OOO",
+                "***"
+        };
+        return estadosSuciedad[tile];
+    }
+
+}
