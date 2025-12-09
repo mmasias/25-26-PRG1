@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AspiradoraSolClase {
+public class Aspiradora {
 
     public static void main(String[] args) {
 
