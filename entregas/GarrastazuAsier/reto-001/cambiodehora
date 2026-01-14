@@ -1,0 +1,31 @@
+package asier_reto2;
+
+import java.util.Scanner;
+
+public class asier_reto2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("¿Cuántos segundos desea convertir? ");
+        long segundosTotales = sc.nextLong();
+        
+        long dias = segundosTotales / 86400;
+        segundosTotales %= 86400;
+        
+        long horas = segundosTotales / 3600;
+        segundosTotales %= 3600;
+        
+        long minutos = segundosTotales / 60;
+        long segundos = segundosTotales % 60;
+        
+    
+        System.out.println();
+        if (dias > 0) System.out.println(dias + " " + (dias == 1 ? "día" : "días"));
+        if (horas > 0) System.out.println(horas + " " + (horas == 1 ? "hora" : "horas"));
+        if (minutos > 0) System.out.println(minutos + " " + (minutos == 1 ? "minuto" : "minutos"));
+        if (segundos > 0 || (dias == 0 && horas == 0 && minutos == 0))
+            System.out.println(segundos + " " + (segundos == 1 ? "segundo" : "segundos"));
+        
+        sc.close();
+    }
+}
