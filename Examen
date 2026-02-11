@@ -1,0 +1,87 @@
+Instrucciones
+A continuación encontrarás fragmentos de código extraídos de tus entregas. Cada fragmento contiene una o más situaciones relacionadas con los conceptos vistos en clase.
+
+Para cada pregunta debes:
+
+Identificar a qué se refiere la observación
+Explicar si es o no un error y por qué
+Proponer la corrección
+Nota: Responde 5 de las 8 preguntas (en función a lo indicado en el examen).
+
+Pregunta 1
+Archivo: Batalla.java — Ver archivo (Reto 002)
+
+} while (!algunMuerto);{
+    // ...
+    String elGanador = vidaGuerrero <=0 ? "El vampiro ha vencido al heroe" : "El heroe ha vencido al vampiro";
+}
+¿Qué observas en este código?
+
+1. Observo que se usa la funcion del while para la variable algunMuerto en el que el codigo dice que si no se cumple algunMuerto entonces vera si la vida del guerrero sera menor o igual que 0 y dira el String que dice que o bien gano el vampiro o el guerrero.
+2. Si, tiene error en donde dice while ya que hay una llave que cierra antes cuando esta dentro de un ciclo do while.
+3. Para corregir este error se debe de quitar la llave despues del ; donde dice (!algunMuerto);
+
+Pregunta 5
+Archivo: Edificio.java — Ver archivo (Reto 003)
+
+System.out.println("Dia " + dia + " - " + hora + ":00  Consumo hora: " + consumoDia);
+System.out.println("Media semanal: " + (consumoTotalSemana / 7));
+¿Qué observas en este código?
+
+1. Trata de poner la media semanal con un print en el que divide el consumoTotalSemana que es un entero con otro entero que es 7
+2. El error esta en el print de abajo que trata de dividir dos enteros cuando la division seria mas precisa con un double de 7.0
+3. El codigo debe verse:
+System.out.println("Media semanal: " + (consumoTotalSemana / 7.0));
+
+Pregunta 6
+Archivo: Edificio.java — Ver archivo (Reto 003)
+
+class Edificio {
+
+    public static void main(String[] args) {
+
+    }
+
+    final double PERSIANA_ABIERTA = 0.7;
+    final double LUZ_ENCENDIDA = 0.6;
+¿Qué observas en este código?
+
+1. Es la primera parte del codigo en el que dice la clase y dos final double. Despues de la clase hay una llave para abrir que esta en rojo lo que significa que el classBody no se cierra para el final del codigo.
+2. Hay un error en la primera llave luego del class porque indica que no hay otra que cierra el classBody.
+3. Correccion: El codigo final debe de cerrar la llave del inicio de la clase del codigo para que no de error.
+
+Pregunta 7
+Archivo: Edificio.java — Ver archivo (Reto 003)
+
+boolean abierta = Math.random() < PERSIANA_ABIERTA;
+ {
+    boolean encendida = Math.random() < LUZ_ENCENDIDA;
+
+    String estadoVentana;
+    if (!abierta)
+        System.out.println(VENTANA_CERRADA);
+        if (encendida){
+            System.out.println(VENTANA_LUZ_ENCENDIDA);
+            } else{
+
+            }
+                System.out.println(VENTANA_LUZ_APAGADA);
+¿Qué observas en este código?
+
+1. Se puede ver que el bloque de codigo no funciona porque no se puede hacer el bucle del else if.
+2. La llave causa que el codigo debajo no sea parte del bucle o sea un bloque invalido porque la llave no cierra.
+3. Correccion: 
+boolean abierta = Math.random() < PERSIANA_ABIERTA;
+{
+    boolean encendida = Math.random() < LUZ_ENCENDIDA;
+
+    String estadoVentana;
+    if (!abierta)
+        System.out.println(VENTANA_CERRADA);
+        if (encendida){
+            System.out.println(VENTANA_LUZ_ENCENDIDA);
+            } else{
+
+            }
+                System.out.println(VENTANA_LUZ_APAGADA);
+            }
